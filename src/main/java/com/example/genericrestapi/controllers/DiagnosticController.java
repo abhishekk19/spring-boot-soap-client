@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.genericrestapi.createOrder.CreateOrderOPT;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.factory.DiagnosticsFactory;
 import com.example.genericrestapi.response.CreateOrderRequest;
@@ -22,7 +21,6 @@ import com.example.genericrestapi.service.SRLDiagnosticService;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 
@@ -71,7 +69,7 @@ public class DiagnosticController {
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}
-	
+
 	@ApiOperation(value = "Create Order//{dId}", response = Iterable.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
@@ -79,7 +77,8 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "/Order/{dId}", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> createOrder(@PathVariable Long dId , @RequestBody CreateOrderRequest createOrderRequest) throws DatatypeConfigurationException {
+	public ResponseEntity<?> createOrder(@PathVariable Long dId, @RequestBody CreateOrderRequest createOrderRequest)
+			throws DatatypeConfigurationException {
 
 //		resultReport.setPORDERNO("ATE000162");
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(dId);

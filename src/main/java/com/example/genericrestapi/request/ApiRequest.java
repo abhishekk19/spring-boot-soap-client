@@ -1,6 +1,5 @@
 package com.example.genericrestapi.request;
 
-import java.beans.Transient;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -21,11 +20,10 @@ public class ApiRequest {
 	private final String groupType = "1";
 
 	private final String source = "OPT";// dro
-	
-	private final String hardCopy = "Y";
-	
-	private final String pFlag = "I";
 
+	private final String hardCopy = "Y";
+
+	private final String pFlag = "I";
 
 	public GetOrderStatus prepareGetOrderStatus(String orderId) {
 		String keyString = orderId + "|" + DIAGNISTICS_SRL;
@@ -56,14 +54,15 @@ public class ApiRequest {
 		return resultReport;
 	}
 
-	public CreateOrderOPT prepareCreateOrderOPT(CreateOrderRequest createOrderRequest) throws DatatypeConfigurationException {
+	public CreateOrderOPT prepareCreateOrderOPT(CreateOrderRequest createOrderRequest)
+			throws DatatypeConfigurationException {
 
 		XMLGregorianCalendar gregFmt = DatatypeFactory.newInstance()
 				.newXMLGregorianCalendar(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date()));
 
 		CreateOrderOPT createOrderOPT = new CreateOrderOPT();
-		
-		//Mandatory fields
+
+		// Mandatory fields
 		createOrderOPT.setPFLAG(pFlag);
 		createOrderOPT.setPCOUNTRY("iNDIA");
 		createOrderOPT.setPTESTS("100012423,100011534,100005133");
@@ -75,8 +74,8 @@ public class ApiRequest {
 		createOrderOPT.setPDOB("05-Aug-2020");
 		createOrderOPT.setPGENDER("M");
 		createOrderOPT.setPLABID("");
-	
-		//Mandatory fields
+
+		// Mandatory fields
 		createOrderOPT.setPSTATE("Madhya Pradesh");
 		createOrderOPT.setPCOLLDATEFROM(gregFmt);
 		createOrderOPT.setPCOLLDATETO(gregFmt);
@@ -96,7 +95,7 @@ public class ApiRequest {
 		createOrderOPT.setPCCID("CS00002926");
 		createOrderOPT.setSource(source);
 
-		//Optional fields
+		// Optional fields
 //		createOrderOPT.setPORDERID("");
 //		createOrderOPT.setPADDRESS("QWE");
 //		createOrderOPT.setPLOCATION("Mumbai");
@@ -129,12 +128,11 @@ public class ApiRequest {
 //		createOrderOPT.setCAMPCONTRACTENDDT(gregFmt);
 //		createOrderOPT.setCAMPCLIENTTYP("CR");;
 //		createOrderOPT.setCAMPPERFORMEDBY("C");
-		
+
 		createOrderOPT.setServiceCentreId("500000898");
 		createOrderOPT.setCAMPPOTOTALQTY("0");
 		createOrderOPT.setCAMPPOBALANCEQTY("0");
 
-		
 		String keyString = createOrderOPT.getPPTNTNM().toUpperCase() + "|" + createOrderOPT.getPGROSSAMT() + "|"
 				+ DIAGNISTICS_SRL;
 

@@ -29,15 +29,14 @@ public class SRLDiagnosticService extends Diagnostics {
 	private String GET_REPORT_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetResultReport_OPT";
 
 	private String CREATE_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT";
-	//https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT
-	
+	// https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT
+
 	private String getOrder_soapActionUrl = "http://tempuri.org/GetOrderStatus";
 
 	private String getReport_soapActionUrl = "http://tempuri.org/GetResultReport_OPT";
 
 	private String createOrder_soapActionUrl = "http://tempuri.org/CreateOrder_OPT";
 
-	
 	private Gson gson = new Gson();
 
 	ApiRequest apirequest = new ApiRequest();
@@ -65,7 +64,7 @@ public class SRLDiagnosticService extends Diagnostics {
 	}
 
 	public Response createOrder(CreateOrderRequest createOrderRequest) throws DatatypeConfigurationException {
-		
+
 		CreateOrderOPT request = apirequest.prepareCreateOrderOPT(createOrderRequest);
 		CreateOrderOPTResponse soapResponse = (CreateOrderOPTResponse) WebServicecClient
 				.callWebService(CREATE_ORDER_URL, request, createOrder_soapActionUrl);

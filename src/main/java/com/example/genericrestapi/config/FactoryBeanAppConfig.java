@@ -20,8 +20,4 @@ public class FactoryBeanAppConfig {
 //        return srlDiagnostics;
 //    }
  
-//    @Bean
-//    public Tool tool() throws Exception {
-//        return diagnosticsFactory().getObject();
-//    }
 }
