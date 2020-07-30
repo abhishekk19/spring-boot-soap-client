@@ -27,8 +27,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-
-@RequestMapping("/diagnostic1")
+@RequestMapping("/diagnostics")
 public class DiagnosticController {
 
 	@Autowired
@@ -37,51 +36,51 @@ public class DiagnosticController {
 	@Autowired
 	DiagnosticsFactory diagnosticsFactory;
 
-	@ApiOperation(value = "get the specific order status", response = Iterable.class)
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list"),
+	@ApiOperation(value = "Get the specific order status")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/orders/{dId}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<?> getOrderStatus(@PathVariable Long dId, @RequestParam String orderId)
+	@RequestMapping(value = "/orders/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getOrderStatus(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException {
 //orderid:ATG000004
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(dId);
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
 		Object response = diagnostics.getOrder(orderId);
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}
 
-	@ApiOperation(value = "get the specific order report", response = Iterable.class)
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list"),
+	@ApiOperation(value = "get the specific order report")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/reports/{dId}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<?> getResultReport(@PathVariable Long dId, @RequestParam String orderId) {
+	@RequestMapping(value = "/reports/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getResultReport(@PathVariable Long diagnosticId, @RequestParam String orderId) {
 
 //		resultReport.setPORDERNO("ATE000162");
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(dId);
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
 		Object response = diagnostics.getReport(orderId);
 
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}
 
-	@ApiOperation(value = "Create Order//{dId}", response = Iterable.class)
+	@ApiOperation(value = "Create Order")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/Order/{dId}", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> createOrder(@PathVariable Long dId, @RequestBody CreateOrderRequest createOrderRequest)
+	@RequestMapping(value = "/Order/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<?> createOrder(@PathVariable Long diagnosticId, @RequestBody CreateOrderRequest createOrderRequest)
 			throws DatatypeConfigurationException {
 
 //		resultReport.setPORDERNO("ATE000162");
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(dId);
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
 		Object response = diagnostics.createOrder(createOrderRequest);
 
 		return new ResponseEntity<>((response), HttpStatus.OK);

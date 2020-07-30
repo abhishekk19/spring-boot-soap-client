@@ -24,18 +24,18 @@ public class SRLDiagnosticService extends Diagnostics {
 	@Autowired
 	SOAPConnector WebServicecClient;
 
-	private String GET_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetOrderStatus";
+	private final String GET_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetOrderStatus";
 
-	private String GET_REPORT_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetResultReport_OPT";
+	private final String GET_REPORT_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetResultReport_OPT";
 
-	private String CREATE_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT";
+	private final String CREATE_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT";
 	// https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT
 
-	private String getOrder_soapActionUrl = "http://tempuri.org/GetOrderStatus";
+	private final String getOrder_soapActionUrl = "http://tempuri.org/GetOrderStatus";
 
-	private String getReport_soapActionUrl = "http://tempuri.org/GetResultReport_OPT";
+	private final String getReport_soapActionUrl = "http://tempuri.org/GetResultReport_OPT";
 
-	private String createOrder_soapActionUrl = "http://tempuri.org/CreateOrder_OPT";
+	private final String createOrder_soapActionUrl = "http://tempuri.org/CreateOrder_OPT";
 
 	private Gson gson = new Gson();
 
@@ -72,7 +72,6 @@ public class SRLDiagnosticService extends Diagnostics {
 		// Constructing json as we are getting soap response asstring
 		Response response = gson.fromJson(soapResponse.getCreateOrderOPTResult(), Response.class);
 		return response;
-		// TODO Auto-generated method stub
 	}
 
 }

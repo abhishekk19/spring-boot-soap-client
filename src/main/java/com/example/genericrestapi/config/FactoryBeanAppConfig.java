@@ -10,8 +10,7 @@ public class FactoryBeanAppConfig {
  
     @Bean(name = "Diagnostics")
     public DiagnosticsFactory diagnosticsFactory() {
-    	DiagnosticsFactory factory = new DiagnosticsFactory();
-        return factory;
+    	return new DiagnosticsFactory();
     }
     
 //    @Bean(name = "SRLDiagnostics")

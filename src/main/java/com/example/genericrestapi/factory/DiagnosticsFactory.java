@@ -6,7 +6,7 @@ import com.example.genericrestapi.service.SRLDiagnosticService;
 public class DiagnosticsFactory extends BaseFactory {
 
 	@Autowired
-	SRLDiagnosticService srlDiagnosticService;
+	private SRLDiagnosticService srlDiagnosticService;
 
 	@Override
 	public Diagnostics createDiagnostics(Long type) {
@@ -22,7 +22,7 @@ public class DiagnosticsFactory extends BaseFactory {
 //            	diagnostics =  srlDiagnosticService;
 //                break;
 		default:
-			throw new IllegalArgumentException("No such Diagnostics.");
+			throw new IllegalArgumentException("No such Diagnostics");
 		}
 		return diagnostics;
 	}
