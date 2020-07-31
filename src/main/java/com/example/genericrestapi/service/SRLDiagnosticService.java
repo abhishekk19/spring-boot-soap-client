@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.genericrestapi.config.SOAPConnector;
+import com.example.genericrestapi.constants.UrlConstants;
 import com.example.genericrestapi.createOrder.CreateOrderOPT;
 import com.example.genericrestapi.createOrder.CreateOrderOPTResponse;
 import com.example.genericrestapi.createOrder.GetOrderStatus;
@@ -24,29 +25,16 @@ public class SRLDiagnosticService extends Diagnostics {
 	@Autowired
 	SOAPConnector WebServicecClient;
 
-	private final String GET_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetOrderStatus";
-
-	private final String GET_REPORT_URL = "https://onlineorder.srl.in:86/service.asmx?op=GetResultReport_OPT";
-
-	private final String CREATE_ORDER_URL = "https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT";
-	// https://onlineorder.srl.in:86/service.asmx?op=CreateOrder_OPT
-
-	private final String getOrder_soapActionUrl = "http://tempuri.org/GetOrderStatus";
-
-	private final String getReport_soapActionUrl = "http://tempuri.org/GetResultReport_OPT";
-
-	private final String createOrder_soapActionUrl = "http://tempuri.org/CreateOrder_OPT";
-
 	private Gson gson = new Gson();
 
-	ApiRequest apirequest = new ApiRequest();
+	private ApiRequest apirequest = new ApiRequest();
 
 	// SRL API
 	public Response getOrder(String orderId) {
 
 		GetOrderStatus orderStatusRequest = apirequest.prepareGetOrderStatus(orderId);
-		GetOrderStatusResponse soapResponse = (GetOrderStatusResponse) WebServicecClient.callWebService(GET_ORDER_URL,
-				orderStatusRequest, getOrder_soapActionUrl);
+		GetOrderStatusResponse soapResponse = (GetOrderStatusResponse) WebServicecClient.callWebService(UrlConstants.GET_ORDER_URL,
+				orderStatusRequest,UrlConstants.getOrder_soapActionUrl);
 
 		// Constructing json as we are getting soap response asstring
 		Response response = gson.fromJson(soapResponse.getGetOrderStatusResult(), Response.class);
@@ -56,7 +44,7 @@ public class SRLDiagnosticService extends Diagnostics {
 	public Response getReport(String orderId) {
 		GetResultReportOPT resultReport = apirequest.prepareResultReportOPT(orderId);
 		GetResultReportOPTResponse soapResponse = (GetResultReportOPTResponse) WebServicecClient
-				.callWebService(GET_REPORT_URL, resultReport, getReport_soapActionUrl);
+				.callWebService(UrlConstants.GET_REPORT_URL, resultReport, UrlConstants.getReport_soapActionUrl);
 
 		// Constructing json as we are getting soap response asstring
 		Response response = gson.fromJson(soapResponse.getGetResultReportOPTResult(), Response.class);
@@ -67,7 +55,7 @@ public class SRLDiagnosticService extends Diagnostics {
 
 		CreateOrderOPT request = apirequest.prepareCreateOrderOPT(createOrderRequest);
 		CreateOrderOPTResponse soapResponse = (CreateOrderOPTResponse) WebServicecClient
-				.callWebService(CREATE_ORDER_URL, request, createOrder_soapActionUrl);
+				.callWebService(UrlConstants.CREATE_ORDER_URL, request, UrlConstants.createOrder_soapActionUrl);
 
 		// Constructing json as we are getting soap response asstring
 		Response response = gson.fromJson(soapResponse.getCreateOrderOPTResult(), Response.class);
