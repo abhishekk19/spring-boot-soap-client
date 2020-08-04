@@ -1,7 +1,7 @@
 package com.example.genericrestapi.factory;
 
-public abstract class BaseFactory {
+public interface BaseFactory {
 
-	public abstract Diagnostics createDiagnostics(Long type);
+	public Diagnostics createDiagnostics(Long type);
 
 }

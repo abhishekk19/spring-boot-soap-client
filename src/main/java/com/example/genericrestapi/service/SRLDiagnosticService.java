@@ -20,7 +20,7 @@ import com.example.genericrestapi.response.Response;
 import com.google.gson.Gson;
 
 @Service
-public class SRLDiagnosticService extends Diagnostics {
+public class SRLDiagnosticService implements Diagnostics {
 
 	@Autowired
 	SOAPConnector WebServicecClient;
@@ -30,6 +30,7 @@ public class SRLDiagnosticService extends Diagnostics {
 	private ApiRequest apirequest = new ApiRequest();
 
 	// SRL API
+	@Override
 	public Response getOrder(String orderId) {
 
 		GetOrderStatus orderStatusRequest = apirequest.prepareGetOrderStatus(orderId);
@@ -41,6 +42,7 @@ public class SRLDiagnosticService extends Diagnostics {
 		return response;
 	}
 
+	@Override
 	public Response getReport(String orderId) {
 		GetResultReportOPT resultReport = apirequest.prepareResultReportOPT(orderId);
 		GetResultReportOPTResponse soapResponse = (GetResultReportOPTResponse) WebServicecClient
@@ -51,6 +53,7 @@ public class SRLDiagnosticService extends Diagnostics {
 		return response;
 	}
 
+	@Override
 	public Response createOrder(CreateOrderRequest createOrderRequest) throws DatatypeConfigurationException {
 
 		CreateOrderOPT request = apirequest.prepareCreateOrderOPT(createOrderRequest);

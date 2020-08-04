@@ -3,7 +3,7 @@ package com.example.genericrestapi.factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 
-public class DiagnosticsFactory extends BaseFactory {
+public class DiagnosticsFactory implements BaseFactory {
 
 	@Autowired
 	private SRLDiagnosticService srlDiagnosticService;
