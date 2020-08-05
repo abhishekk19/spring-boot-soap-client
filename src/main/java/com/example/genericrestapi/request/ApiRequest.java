@@ -10,7 +10,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import com.example.genericrestapi.createOrder.CreateOrderOPT;
 import com.example.genericrestapi.createOrder.GetOrderStatus;
 import com.example.genericrestapi.createOrder.GetResultReportOPT;
-import com.example.genericrestapi.response.CreateOrderRequest;
 import com.example.genericrestapi.util.MD5Util;
 
 public class ApiRequest {

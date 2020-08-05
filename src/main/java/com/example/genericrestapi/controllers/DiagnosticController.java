@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.factory.DiagnosticsFactory;
-import com.example.genericrestapi.response.CreateOrderRequest;
+import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;

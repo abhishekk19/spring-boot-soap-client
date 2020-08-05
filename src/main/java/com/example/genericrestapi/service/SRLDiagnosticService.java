@@ -15,7 +15,7 @@ import com.example.genericrestapi.createOrder.GetResultReportOPT;
 import com.example.genericrestapi.createOrder.GetResultReportOPTResponse;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.ApiRequest;
-import com.example.genericrestapi.response.CreateOrderRequest;
+import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.response.Response;
 import com.google.gson.Gson;
 
