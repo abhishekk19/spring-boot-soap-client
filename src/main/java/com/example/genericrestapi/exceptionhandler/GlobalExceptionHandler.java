@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(value = Exception.class)
 	public ErrorResponse handleException(Exception ex) {
-		return new ErrorResponse("Server not responding", HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ErrorResponse(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	@ResponseStatus(code = HttpStatus.NOT_FOUND)
