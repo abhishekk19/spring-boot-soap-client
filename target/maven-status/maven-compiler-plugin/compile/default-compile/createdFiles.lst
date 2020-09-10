@@ -3,7 +3,9 @@ com\example\genericrestapi\createOrder\CommonClassResponse.class
 com\example\genericrestapi\createOrder\GetCities.class
 com\example\genericrestapi\createOrder\GetCityDetailsResponse.class
 com\example\genericrestapi\createOrder\GetCityStateListResponse.class
+com\example\genericrestapi\request\CreateOrderRequest.class
 com\example\genericrestapi\createOrder\ResendOTP.class
+com\example\genericrestapi\request\CallHealthTestInfoRequest.class
 com\example\genericrestapi\createOrder\GetContentResponse.class
 com\example\genericrestapi\createOrder\GetGroupid.class
 com\example\genericrestapi\createOrder\RepeateOrder.class
@@ -14,7 +16,6 @@ com\example\genericrestapi\createOrder\AuthenticateMobileNoResponse.class
 com\example\genericrestapi\createOrder\SurveyForFamily.class
 com\example\genericrestapi\createOrder\FetchDataNew.class
 com\example\genericrestapi\error\ErrorResponse.class
-com\example\genericrestapi\response\ResultReportOPTResponse.class
 com\example\genericrestapi\createOrder\ChangePasswordResponse.class
 com\example\genericrestapi\createOrder\DisplayFamilyMemberResponse.class
 com\example\genericrestapi\createOrder\GetResultReport.class
@@ -28,6 +29,7 @@ com\example\genericrestapi\createOrder\ResendOTPMobileResponse.class
 com\example\genericrestapi\createOrder\ValidatePromocodeCART.class
 com\example\genericrestapi\createOrder\CreateOrderGuestSurveyResponse.class
 com\example\genericrestapi\createOrder\GetAllStatesResponse.class
+com\example\genericrestapi\request\CreateOrder.class
 com\example\genericrestapi\createOrder\UserRegistration.class
 com\example\genericrestapi\config\FactoryBeanAppConfig.class
 com\example\genericrestapi\createOrder\GetResultReportOPT.class
@@ -37,6 +39,7 @@ com\example\genericrestapi\createOrder\ValidateVoucherResponse.class
 com\example\genericrestapi\createOrder\DisplayFamilyMemberNew.class
 com\example\genericrestapi\createOrder\GetAllCategories.class
 com\example\genericrestapi\createOrder\GetOrderStatus.class
+com\example\genericrestapi\response\TestsInfoResponse.class
 com\example\genericrestapi\createOrder\GetPatientDetailsResponse.class
 com\example\genericrestapi\createOrder\ObjectFactory.class
 com\example\genericrestapi\createOrder\VerifyOTP.class
@@ -51,7 +54,6 @@ com\example\genericrestapi\createOrder\ResendOTPMobile.class
 com\example\genericrestapi\createOrder\SurveyForFamilyResponse.class
 com\example\genericrestapi\createOrder\GetAllCategoriesResponse.class
 com\example\genericrestapi\createOrder\DeleteNotificationResponse.class
-com\example\genericrestapi\response\OrderStatusResponse.class
 com\example\genericrestapi\createOrder\MyCartDetailsResponse.class
 com\example\genericrestapi\createOrder\AuthenticateUserNewResponse.class
 com\example\genericrestapi\createOrder\UpdateProfileResponse.class
@@ -66,6 +68,7 @@ com\example\genericrestapi\createOrder\GetResultReportOPTResponse.class
 com\example\genericrestapi\createOrder\FamilyMemberMapping.class
 com\example\genericrestapi\createOrder\ValidateRegistration.class
 com\example\genericrestapi\createOrder\GetCityDetails.class
+com\example\genericrestapi\response\LabInfo.class
 com\example\genericrestapi\createOrder\GetUser.class
 com\example\genericrestapi\createOrder\ValidateRegistrationFamilyResponse.class
 com\example\genericrestapi\createOrder\ForgotPasswordResponse.class
@@ -106,11 +109,13 @@ com\example\genericrestapi\createOrder\SurveyCity.class
 com\example\genericrestapi\createOrder\GetOTP.class
 com\example\genericrestapi\createOrder\GetOrderHistoryProduct.class
 com\example\genericrestapi\createOrder\GetVersion.class
+com\example\genericrestapi\request\conditions.class
 com\example\genericrestapi\createOrder\GetUserResponse.class
 com\example\genericrestapi\createOrder\FamilyMemberMappingResponse.class
 com\example\genericrestapi\createOrder\CreateOrderGuestCC.class
 com\example\genericrestapi\response\Response.class
 com\example\genericrestapi\createOrder\FilterProductsResponse.class
+com\example\genericrestapi\response\LabsInfoResponse.class
 com\example\genericrestapi\createOrder\DisplayFamilyMember.class
 com\example\genericrestapi\createOrder\SearchTestResponse.class
 com\example\genericrestapi\createOrder\SearchTest.class
@@ -123,7 +128,10 @@ com\example\genericrestapi\createOrder\GetSurvey.class
 com\example\genericrestapi\createOrder\ResendOTPResponse.class
 com\example\genericrestapi\createOrder\AuthenticateUserNew.class
 com\example\genericrestapi\createOrder\CreateOrderOPTResponse.class
+com\example\genericrestapi\aspect\LoggingAspect.class
 com\example\genericrestapi\createOrder\FetchDataNewResponse.class
+com\example\genericrestapi\response\TestInfo.class
+com\example\genericrestapi\service\CallHealthDiagnosticService.class
 com\example\genericrestapi\createOrder\GetPromotionOffers.class
 com\example\genericrestapi\config\Config.class
 com\example\genericrestapi\createOrder\UpdateProfile.class
@@ -131,7 +139,6 @@ com\example\genericrestapi\createOrder\GetTopProductsResponse.class
 com\example\genericrestapi\config\SwaggerConfig.class
 com\example\genericrestapi\createOrder\FetchPatientDetailsResponse.class
 com\example\genericrestapi\createOrder\GetCityStateList.class
-com\example\genericrestapi\response\CreateOrderRequest.class
 com\example\genericrestapi\factory\BaseFactory.class
 com\example\genericrestapi\createOrder\CreateOrderGuestSurveyNewResponse.class
 com\example\genericrestapi\createOrder\VerifyOTPResponse.class

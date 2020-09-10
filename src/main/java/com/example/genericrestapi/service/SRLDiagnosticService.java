@@ -16,7 +16,11 @@ import com.example.genericrestapi.createOrder.GetResultReportOPTResponse;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.ApiRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
+import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.Response;
+import com.example.genericrestapi.response.TestsInfoResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.Gson;
 
 @Service
@@ -63,6 +67,24 @@ public class SRLDiagnosticService implements Diagnostics {
 		// Constructing json as we are getting soap response asstring
 		Response response = gson.fromJson(soapResponse.getCreateOrderOPTResult(), Response.class);
 		return response;
+	}
+
+	@Override
+	public TestsInfoResponse getAllTests() throws JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TestsInfoResponse getTestsBySearchCategory() throws JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

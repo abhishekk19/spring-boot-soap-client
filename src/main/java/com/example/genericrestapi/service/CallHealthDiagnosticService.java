@@ -95,4 +95,22 @@ public class CallHealthDiagnosticService implements Diagnostics {
 		return response;
 
 	}
+
+	@Override
+	public Response getOrder(String orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response getReport(String orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
