@@ -13,13 +13,40 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="046dc7a2-dd45-42e9-99ed-e5f454114131" name="Default Changelist" comment="Refactor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/Diagnostics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/CreateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/sun-jaxb.episode" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/request/CreateOrderRequest.class" afterDir="false" />
+    <list default="true" id="046dc7a2-dd45-42e9-99ed-e5f454114131" name="Default Changelist" comment="Adding Stubs for Call Health APIS">
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/CallHealthTestInfoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/CreateOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/conditions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/LabInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/LabsInfoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/TestInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/TestsInfoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/CallHealthDiagnosticService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/aspect/LoggingAspect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/request/CallHealthTestInfoRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/request/CreateOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/request/conditions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/LabInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/LabsInfoResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/TestInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/TestsInfoResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.genericrestapi.test.service.SRLDiagnosticServiceTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.genericrestapi.test.service.SRLDiagnosticServiceTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/DiagnosticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/DiagnosticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/Diagnostics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/Diagnostics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/DiagnosticsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/DiagnosticsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/Response.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.example.genericrestapi/spring-boot-soap-client/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.example.genericrestapi/spring-boot-soap-client/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/DiagnosticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/DiagnosticController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/exceptionhandler/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/exceptionhandler/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/Diagnostics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/Diagnostics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/DiagnosticsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/DiagnosticsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/request/ApiRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/request/ApiRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/Response.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/SRLDiagnosticService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/SRLDiagnosticService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +56,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Abhishek\.m2\wrapper\dists\apache-maven-3.5.0-bin\6ps54u5pnnbbpr6ds9rppcc7iv\apache-maven-3.5.0" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1fMshTYbfnyr6eE1ODXEXvgHdPo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,7 +71,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DRL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596534639480</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding Stubs for Call Health APIS">
+      <created>1599731240426</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599731240426</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,24 +152,28 @@
     <MESSAGE value="removing the file" />
     <MESSAGE value="Moving constants to constant Package" />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="Adding Stubs for Call Health APIS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Stubs for Call Health APIS" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1596710350830">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="66" y="65" width="961" height="445" key="DiffContextDialog" timestamp="1599731440938">
+      <screen x="0" y="0" width="1093" height="574" />
     </state>
+    <state x="66" y="65" width="961" height="445" key="DiffContextDialog/0.0.1093.574@0.0.1093.574" timestamp="1599731440938" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1596710350830" />
     <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1596085271213">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596085271213" />
-    <state x="468" y="115" key="RollbackChangesDialog" timestamp="1596709314567">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="333" y="0" key="RollbackChangesDialog" timestamp="1599731429545">
+      <screen x="0" y="0" width="1093" height="574" />
     </state>
+    <state x="333" y="0" key="RollbackChangesDialog/0.0.1093.574@0.0.1093.574" timestamp="1599731429545" />
     <state x="468" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596709314567" />
-    <state x="317" y="130" width="898" height="533" key="Vcs.Push.Dialog.v2" timestamp="1596534656402">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="226" y="91" width="898" height="533" key="Vcs.Push.Dialog.v2" timestamp="1599731248963">
+      <screen x="0" y="0" width="1093" height="574" />
     </state>
+    <state x="226" y="91" key="Vcs.Push.Dialog.v2/0.0.1093.574@0.0.1093.574" timestamp="1599731248963" />
     <state x="317" y="130" width="898" height="533" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1596534656402" />
   </component>
   <component name="XDebuggerManager">
@@ -136,7 +181,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/DiagnosticsFactory.java</url>
-          <line>11</line>
+          <line>16</line>
           <properties class="com.example.genericrestapi.factory.DiagnosticsFactory" method="createDiagnostics">
             <option name="EMULATED" value="true" />
           </properties>

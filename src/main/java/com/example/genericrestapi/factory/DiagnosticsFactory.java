@@ -1,12 +1,17 @@
 package com.example.genericrestapi.factory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.genericrestapi.service.CallHealthDiagnosticService;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 
 public class DiagnosticsFactory implements BaseFactory {
 
 	@Autowired
 	private SRLDiagnosticService srlDiagnosticService;
+	
+	@Autowired
+	private CallHealthDiagnosticService callHealthDiagnosticService;
 
 	@Override
 	public Diagnostics createDiagnostics(Long type) {
@@ -15,9 +20,9 @@ public class DiagnosticsFactory implements BaseFactory {
 		case 1:// SRL
 			diagnostics = srlDiagnosticService;
 			break;
-//            case 2:
-//            	diagnostics = srlDiagnostics;
-//                break;
+            case 2:
+            	diagnostics = callHealthDiagnosticService;
+                break;
 //            case 3:
 //            	diagnostics =  srlDiagnosticService;
 //                break;

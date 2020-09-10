@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.factory.DiagnosticsFactory;
 import com.example.genericrestapi.request.CreateOrderRequest;
+import com.example.genericrestapi.response.LabsInfoResponse;
+import com.example.genericrestapi.response.TestsInfoResponse;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -35,6 +37,56 @@ public class DiagnosticController {
 
 	@Autowired
 	DiagnosticsFactory diagnosticsFactory;
+	
+	
+	@ApiOperation(value = "Get the list of Test codes and Test names")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "{diagnosticId}/tests", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getAllTests(@PathVariable Long diagnosticId)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		TestsInfoResponse response = diagnostics.getAllTests();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
+	
+	@ApiOperation(value = "Get the list of Test codes based on lab visit or home sample pick up")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "{diagnosticId}/tests/{search}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getTestsBySearchCategory(@PathVariable Long diagnosticId,@PathVariable String search)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		TestsInfoResponse response = diagnostics.getTestsBySearchCategory();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
+	
+	
+	@ApiOperation(value = "Get the list of Labs based on codes")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "{diagnosticId}/labs", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getLabs(@PathVariable Long diagnosticId)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		LabsInfoResponse response = diagnostics.getLabs();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
 
 	@ApiOperation(value = "Get the specific order status")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
