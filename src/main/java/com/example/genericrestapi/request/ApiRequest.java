@@ -23,6 +23,14 @@ public class ApiRequest {
 	private final String hardCopy = "Y";
 
 	private final String pFlag = "I";
+	
+	
+	public CallHealthTestInfoRequest prepareGetTests() {
+		CallHealthTestInfoRequest callHealthTestInfoRequest = new CallHealthTestInfoRequest();
+		
+		
+	return callHealthTestInfoRequest;	
+	}
 
 	public GetOrderStatus prepareGetOrderStatus(String orderId) {
 		String keyString = orderId + "|" + DIAGNISTICS_SRL;
