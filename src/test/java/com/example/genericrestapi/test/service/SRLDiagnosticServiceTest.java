@@ -46,7 +46,7 @@ public class SRLDiagnosticServiceTest {
 				+ "  \"msg\": \"Query Successful\",\r\n" + "  \"data\": \"ACCEPTED\"\r\n" + "}");
 		when(WebServicecClient.callWebService(Mockito.anyString(), Mockito.anyObject(),
 				Mockito.anyString())).thenReturn(getOrderStatusResponse);
-		Response res = diagnosticService.getOrder(orderId);
+		Response res = diagnosticService.getOrderDetails(orderId);
 		assertEquals("100", res.getCode());
 		assertEquals("Query Successful", res.getMsg());
 		assertEquals("ACCEPTED", res.getData());
