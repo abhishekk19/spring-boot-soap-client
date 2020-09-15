@@ -26,6 +26,7 @@ import com.example.genericrestapi.response.RegisterUserInfoResponse;
 import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.TestsInfoResponse;
+import com.example.genericrestapi.response.TrackOrderInfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -206,7 +207,7 @@ public class DiagnosticController {
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
-		RescheduleOrderInfoResponse response = diagnostics.trackOrder();
+		TrackOrderInfoResponse response = diagnostics.trackOrder();
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}
@@ -217,7 +218,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/rescheduleOrder/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/rescheduleOrder/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> rescheduleOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 

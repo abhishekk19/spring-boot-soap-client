@@ -20,6 +20,7 @@ import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.response.TestsInfoResponse;
+import com.example.genericrestapi.response.TrackOrderInfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -365,6 +366,31 @@ public class CallHealthDiagnosticService implements Diagnostics {
 	}
 	
 	@Override
+	public TrackOrderInfoResponse trackOrder()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{\r\n" + 
+				"    \"status\": 1,\r\n" + 
+				"    \"message\": \"success\",\r\n" + 
+				"    \"data\": {\r\n" + 
+				"                \"orderId\" : 2781815,\r\n" + 
+				"                \"odid\" : \"EC-AP-020920-2326837\",\r\n" + 
+				"                \"nomenclature\" : [\r\n" + 
+				"                        {\r\n" + 
+				"                                \"_id\" : \"5cecde54b67824dc1c7fd811\",\r\n" + 
+				"                                \"Nomenclature\" : \"Consultation Confirmed\"\r\n" + 
+				"                        }\r\n" + 
+				"                ]\r\n" + 
+				"        }    \r\n" + 
+				"}";
+		TrackOrderInfoResponse response = objectMapper.readValue(json, TrackOrderInfoResponse.class);
+
+		return response;
+	}
+
+	
+	@Override
 	public RescheduleOrderInfoResponse rescheduleOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -401,6 +427,5 @@ public class CallHealthDiagnosticService implements Diagnostics {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

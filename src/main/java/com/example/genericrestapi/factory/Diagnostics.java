@@ -15,6 +15,7 @@ import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.response.TestsInfoResponse;
+import com.example.genericrestapi.response.TrackOrderInfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -37,14 +38,12 @@ public interface Diagnostics {
 	
 	public OrderDetailsInfoResponse getOrderDetails(String orderId) throws JsonMappingException, JsonProcessingException;;
 
-	public RescheduleOrderInfoResponse trackOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
+	public TrackOrderInfoResponse trackOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 	
 	public RescheduleOrderInfoResponse rescheduleOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 
 	public RescheduleReasonsInfoResponse saveRescheduleReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 
-	
-	
 	public Response getReport(String orderId);
 
 	public CreateOrderResponse createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException;
