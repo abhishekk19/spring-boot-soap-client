@@ -14,32 +14,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="046dc7a2-dd45-42e9-99ed-e5f454114131" name="Default Changelist" comment="updating the project with latest build">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/CreateOrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/request/RegisterUserInfoRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/CreateOrdeInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/OrderDetailsInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/RegisterUserAddressInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/RegisterUserInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/RescheduleReasonsInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/UserInfoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.example.genericrestapi/spring-boot-soap-client/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.example.genericrestapi/spring-boot-soap-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/CallHealthDiagnosticService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/PhleboSlotsinfoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/RescheduleOrderInfoResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/DiagnosticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/DiagnosticController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/Diagnostics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/Diagnostics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/CallHealthDiagnosticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/CallHealthDiagnosticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/SRLDiagnosticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/SRLDiagnosticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/DiagnosticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/DiagnosticController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/BaseFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/BaseFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/Diagnostics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/Diagnostics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/DiagnosticsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/DiagnosticsFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/SRLDiagnosticService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/SRLDiagnosticService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,19 +143,19 @@
     <option name="LAST_COMMIT_MESSAGE" value="updating the project with latest build" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="66" y="65" width="961" height="445" key="DiffContextDialog" timestamp="1599731831669">
+    <state x="66" y="65" width="961" height="445" key="DiffContextDialog" timestamp="1600166856696">
       <screen x="0" y="0" width="1093" height="574" />
     </state>
-    <state x="66" y="65" width="961" height="445" key="DiffContextDialog/0.0.1093.574@0.0.1093.574" timestamp="1599731831669" />
+    <state x="66" y="65" width="961" height="445" key="DiffContextDialog/0.0.1093.574@0.0.1093.574" timestamp="1600166856696" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1596710350830" />
     <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1596085271213">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596085271213" />
-    <state x="333" y="0" key="RollbackChangesDialog" timestamp="1599731429545">
+    <state x="314" y="16" key="RollbackChangesDialog" timestamp="1600166559931">
       <screen x="0" y="0" width="1093" height="574" />
     </state>
-    <state x="333" y="0" key="RollbackChangesDialog/0.0.1093.574@0.0.1093.574" timestamp="1599731429545" />
+    <state x="314" y="16" key="RollbackChangesDialog/0.0.1093.574@0.0.1093.574" timestamp="1600166559931" />
     <state x="468" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596709314567" />
     <state x="226" y="41" width="898" height="533" key="Vcs.Push.Dialog.v2" timestamp="1599731888017">
       <screen x="0" y="0" width="1093" height="574" />

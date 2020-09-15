@@ -13,8 +13,10 @@ import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.OrderDetailsInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse;
 import com.example.genericrestapi.response.RegisterUserAddressInfoResponse;
 import com.example.genericrestapi.response.RegisterUserInfoResponse;
+import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.response.TestsInfoResponse;
@@ -89,12 +91,11 @@ public class CallHealthDiagnosticService implements Diagnostics {
 
 	}
 
-	public LabsInfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
+	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		String json = "{\r\n" + "    \"status\": \"SUCCESS\",\r\n" + "    \"statusCode\": 200,\r\n"
-				+ "    {\"status\":1,\"slots\":{\"2020-09-04\":[{\"from_time\":\"06:00:00\",\"to_time\":\"06:45:00\",\"transaction_id\":\"1599024538449878199\",\"is_booked\":0},{\"from_time\":\"06:30:00\",\"to_time\":\"07:30:00\",\"transaction_id\":\"1599024538448878235\",\"is_booked\":1}],\"2020-09-05\":[{\"from_time\":\"06:45:00\",\"to_time\":\"07:30:00\",\"transaction_id\":\"1599024538451554065\",\"is_booked\":0},{\"from_time\":\"07:30:00\",\"to_time\":\"08:15:00\",\"transaction_id\":\"1599024538451403971\",\"is_booked\":0}]}}";
-		LabsInfoResponse response = objectMapper.readValue(json, LabsInfoResponse.class);
+		String json = "{\"status\":1,\"slots\":{\"2020-09-04\":[{\"from_time\":\"06:00:00\",\"to_time\":\"06:45:00\",\"transaction_id\":\"1599024538449878199\",\"is_booked\":0},{\"from_time\":\"06:30:00\",\"to_time\":\"07:30:00\",\"transaction_id\":\"1599024538448878235\",\"is_booked\":1}],\"2020-09-05\":[{\"from_time\":\"06:45:00\",\"to_time\":\"07:30:00\",\"transaction_id\":\"1599024538451554065\",\"is_booked\":0},{\"from_time\":\"07:30:00\",\"to_time\":\"08:15:00\",\"transaction_id\":\"1599024538451403971\",\"is_booked\":0}]}}";
+		PhleboSlotsinfoResponse response = objectMapper.readValue(json, PhleboSlotsinfoResponse.class);
 
 		return response;
 
@@ -359,6 +360,20 @@ public class CallHealthDiagnosticService implements Diagnostics {
 				"        }\r\n" + 
 				"}";
 		OrderDetailsInfoResponse response = objectMapper.readValue(json, OrderDetailsInfoResponse.class);
+
+		return response;
+	}
+	
+	@Override
+	public RescheduleOrderInfoResponse rescheduleOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{\r\n" + 
+				"    \"status\": 1,\r\n" + 
+				"    \"code\": \"10100\",\r\n" + 
+				"    \"message\": \"Order rescheduled successfully\"\r\n" + 
+				"}";
+		RescheduleOrderInfoResponse response = objectMapper.readValue(json, RescheduleOrderInfoResponse.class);
 
 		return response;
 	}

@@ -8,8 +8,10 @@ import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.OrderDetailsInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse;
 import com.example.genericrestapi.response.RegisterUserAddressInfoResponse;
 import com.example.genericrestapi.response.RegisterUserInfoResponse;
+import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.response.TestsInfoResponse;
@@ -25,7 +27,7 @@ public interface Diagnostics {
 
 	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException;
 	
-	public LabsInfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException;
+	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException;
 	
 	public RegisterUserInfoResponse registerUser(RegisterUserInfoRequest userInfoRequest) throws JsonMappingException, JsonProcessingException;
 
@@ -35,8 +37,13 @@ public interface Diagnostics {
 	
 	public OrderDetailsInfoResponse getOrderDetails(String orderId) throws JsonMappingException, JsonProcessingException;;
 
+	public RescheduleOrderInfoResponse trackOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
+	
+	public RescheduleOrderInfoResponse rescheduleOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
+
 	public RescheduleReasonsInfoResponse saveRescheduleReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 
+	
 	
 	public Response getReport(String orderId);
 

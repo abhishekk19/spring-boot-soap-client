@@ -20,8 +20,10 @@ import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse;
 import com.example.genericrestapi.response.RegisterUserAddressInfoResponse;
 import com.example.genericrestapi.response.RegisterUserInfoResponse;
+import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.TestsInfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
@@ -112,21 +114,21 @@ public class DiagnosticController {
 
 	}
 	
-//	@ApiOperation(value = "Get Phlebo Slot Selection based on Customer Location")
-//	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
-//			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-//			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-//			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
-//
-//	@RequestMapping(value = "{diagnosticId}/slots", method = RequestMethod.GET, produces = "application/json")
-//	public ResponseEntity<?> getPhleboSlots(@PathVariable Long diagnosticId)
-//			throws JsonParseException, JsonMappingException, IOException {
-//
-//		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
-//		LabsInfoResponse response = diagnostics.getPhleboSlots();
-//		return new ResponseEntity<>((response), HttpStatus.OK);
-//
-//	}
+	@ApiOperation(value = "Get Phlebo Slot Selection based on Customer Location")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "{diagnosticId}/slots", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getPhleboSlots(@PathVariable Long diagnosticId)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		PhleboSlotsinfoResponse response = diagnostics.getPhleboSlots();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
 	
 	@ApiOperation(value = "Registration of the user")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
@@ -192,6 +194,39 @@ public class DiagnosticController {
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}
+	
+	@ApiOperation(value = "Track Order")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "/trackOrder/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> trackOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
+			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		RescheduleOrderInfoResponse response = diagnostics.trackOrder();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
+	
+	@ApiOperation(value = "Reschedule Order")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "/rescheduleOrder/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> rescheduleOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
+			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		RescheduleOrderInfoResponse response = diagnostics.rescheduleOrder();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
+
 	
 	@ApiOperation(value = "Reschedule reasons")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
