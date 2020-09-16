@@ -126,7 +126,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "{diagnosticId}/slots", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/slots", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> getPhleboSlots(@PathVariable Long diagnosticId , @RequestBody PhleboSlotsRequest phleboSlotsRequest)
 			throws JsonParseException, JsonMappingException, IOException {
 
