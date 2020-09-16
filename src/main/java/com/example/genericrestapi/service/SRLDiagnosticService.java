@@ -18,13 +18,19 @@ import com.example.genericrestapi.request.ApiRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.CreateOrderResponse;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.response.CancelOrderInfoResponse;
+import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
+import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.OrderDetailsInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse;
 import com.example.genericrestapi.response.RegisterUserAddressInfoResponse;
 import com.example.genericrestapi.response.RegisterUserInfoResponse;
+import com.example.genericrestapi.response.RescheduleOrderInfoResponse;
 import com.example.genericrestapi.response.RescheduleReasonsInfoResponse;
 import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.response.TestsInfoResponse;
+import com.example.genericrestapi.response.TrackOrderInfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -132,6 +138,54 @@ public class SRLDiagnosticService implements Diagnostics {
 
 	@Override
 	public RescheduleReasonsInfoResponse saveRescheduleReasons()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public OrderDetailsInfoResponse getOrderDetails(String orderId)
+			throws JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TrackOrderInfoResponse trackOrder()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CancelOrderInfoResponse cancelOrder()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CancelOrderReasonsInfoResponse[] cancelOrderReasons()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RescheduleOrderInfoResponse rescheduleOrder()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreateOrdeInfoResponse createOrder()
 			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;

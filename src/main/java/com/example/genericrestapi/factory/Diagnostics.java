@@ -5,6 +5,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.CreateOrderResponse;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.response.CancelOrderInfoResponse;
+import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.OrderDetailsInfoResponse;
@@ -40,6 +42,10 @@ public interface Diagnostics {
 
 	public TrackOrderInfoResponse trackOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 	
+	public CancelOrderInfoResponse cancelOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
+
+	public CancelOrderReasonsInfoResponse[] cancelOrderReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
+
 	public RescheduleOrderInfoResponse rescheduleOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 
 	public RescheduleReasonsInfoResponse saveRescheduleReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;

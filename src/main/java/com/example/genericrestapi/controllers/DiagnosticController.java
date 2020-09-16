@@ -18,6 +18,8 @@ import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.factory.DiagnosticsFactory;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.response.CancelOrderInfoResponse;
+import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.PhleboSlotsinfoResponse;
@@ -208,6 +210,39 @@ public class DiagnosticController {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
 		TrackOrderInfoResponse response = diagnostics.trackOrder();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
+	
+	
+	@ApiOperation(value = "Cancel Order")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "/cancelOrder/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<?> cancelOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
+			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		CancelOrderInfoResponse response = diagnostics.cancelOrder();
+		return new ResponseEntity<>((response), HttpStatus.OK);
+
+	}
+	
+	@ApiOperation(value = "Fetch Cancel Order Reasons")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list", response = Object.class),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "/cancelOrderReasons/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> cancelOrderReasons(@PathVariable Long diagnosticId, @RequestParam String orderId)
+			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
+
+		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		CancelOrderReasonsInfoResponse[] response = diagnostics.cancelOrderReasons();
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}

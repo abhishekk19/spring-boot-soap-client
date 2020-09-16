@@ -10,6 +10,8 @@ import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.CreateOrderResponse;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.response.CancelOrderInfoResponse;
+import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
 import com.example.genericrestapi.response.LabsInfoResponse;
 import com.example.genericrestapi.response.OrderDetailsInfoResponse;
@@ -385,6 +387,144 @@ public class CallHealthDiagnosticService implements Diagnostics {
 				"        }    \r\n" + 
 				"}";
 		TrackOrderInfoResponse response = objectMapper.readValue(json, TrackOrderInfoResponse.class);
+
+		return response;
+	}
+	
+	@Override
+	public CancelOrderInfoResponse cancelOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{\r\n" + 
+				"    \"status\": \"1\",\r\n" + 
+				"    \"msg\": [\r\n" + 
+				"        {\r\n" + 
+				"            \"response\": \"1\",\r\n" + 
+				"            \"msg\": \"Order_id: 2096030 is Cancelled\",\r\n" + 
+				"            \"chiss_response\": [\r\n" + 
+				"                {\r\n" + 
+				"                    \"status\": 1,\r\n" + 
+				"                    \"message\": \"Order Cancelled Successfully\"\r\n" + 
+				"                }\r\n" + 
+				"            ]\r\n" + 
+				"        }\r\n" + 
+				"    ]\r\n" + 
+				"}";
+		CancelOrderInfoResponse response = objectMapper.readValue(json, CancelOrderInfoResponse.class);
+
+		return response;
+	}
+	
+	@Override
+	public CancelOrderReasonsInfoResponse[] cancelOrderReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "[\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":1,\r\n" + 
+				"      \"name\":\"Application issue\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":2,\r\n" + 
+				"      \"name\":\"Customer\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":3,\r\n" + 
+				"      \"name\":\"Denial\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":4,\r\n" + 
+				"      \"name\":\"Price / Product\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":5,\r\n" + 
+				"      \"name\":\"Service related\",\r\n" + 
+				"      \"careplan\":1,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":6,\r\n" + 
+				"      \"name\":\"Skill issue\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":7,\r\n" + 
+				"      \"name\":\"Officer related\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":8,\r\n" + 
+				"      \"name\":\"Order related\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":9,\r\n" + 
+				"      \"name\":\"Care Plan Related\",\r\n" + 
+				"      \"careplan\":1,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"mallesh\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":10,\r\n" + 
+				"      \"name\":\"Different Vendor collected Samples\",\r\n" + 
+				"      \"corporate\":\"B2B\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"mallesh.g\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":11,\r\n" + 
+				"      \"name\":\"policy cancellation\",\r\n" + 
+				"      \"corporate\":\"B2B\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"mallesh.g\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":12,\r\n" + 
+				"      \"name\":\"Customer is not cooperating\",\r\n" + 
+				"      \"corporate\":\"B2B\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"mallesh.g\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":13,\r\n" + 
+				"      \"name\":\"waive of medicals\",\r\n" + 
+				"      \"corporate\":\"B2B\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"mallesh.g\"\r\n" + 
+				"   },\r\n" + 
+				"   {\r\n" + 
+				"      \"id\":14,\r\n" + 
+				"      \"name\":\"Non Serviciable location\",\r\n" + 
+				"      \"corporate\":\"B2B\",\r\n" + 
+				"      \"careplan\":0,\r\n" + 
+				"      \"status\":true,\r\n" + 
+				"      \"created_by\":\"mallesh.g\"\r\n" + 
+				"   }\r\n" + 
+				"]";
+		CancelOrderReasonsInfoResponse[] response = objectMapper.readValue(json, CancelOrderReasonsInfoResponse[].class);
 
 		return response;
 	}
