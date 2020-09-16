@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.factory.DiagnosticsFactory;
+import com.example.genericrestapi.request.CancelOrderRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
+import com.example.genericrestapi.request.PhleboSlotsRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.request.RescheduleOrderRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
@@ -124,7 +127,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "{diagnosticId}/slots", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<?> getPhleboSlots(@PathVariable Long diagnosticId)
+	public ResponseEntity<?> getPhleboSlots(@PathVariable Long diagnosticId , @RequestBody PhleboSlotsRequest phleboSlotsRequest)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
@@ -222,7 +225,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "/cancelOrder/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> cancelOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
+	public ResponseEntity<?> cancelOrder(@PathVariable Long diagnosticId, @RequestBody CancelOrderRequest cancelOrderRequest)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
@@ -238,11 +241,11 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "/cancelOrderReasons/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<?> cancelOrderReasons(@PathVariable Long diagnosticId, @RequestParam String orderId)
+	public ResponseEntity<?> cancelOrderReasons(@PathVariable Long diagnosticId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
-		CancelOrderReasonsInfoResponse[] response = diagnostics.cancelOrderReasons();
+		CancelOrderReasonsInfoResponse[] response = diagnostics.getCancelOrderReasons();
 		return new ResponseEntity<>((response), HttpStatus.OK);
 
 	}
@@ -254,7 +257,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "/rescheduleOrder/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> rescheduleOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
+	public ResponseEntity<?> rescheduleOrder(@PathVariable Long diagnosticId, @RequestBody RescheduleOrderRequest rescheduleOrderRequest)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);

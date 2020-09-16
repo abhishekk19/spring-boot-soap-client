@@ -44,7 +44,7 @@ public interface Diagnostics {
 	
 	public CancelOrderInfoResponse cancelOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 
-	public CancelOrderReasonsInfoResponse[] cancelOrderReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
+	public CancelOrderReasonsInfoResponse[] getCancelOrderReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 
 	public RescheduleOrderInfoResponse rescheduleOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 

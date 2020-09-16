@@ -416,7 +416,7 @@ public class CallHealthDiagnosticService implements Diagnostics {
 	}
 	
 	@Override
-	public CancelOrderReasonsInfoResponse[] cancelOrderReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+	public CancelOrderReasonsInfoResponse[] getCancelOrderReasons() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		String json = "[\r\n" + 

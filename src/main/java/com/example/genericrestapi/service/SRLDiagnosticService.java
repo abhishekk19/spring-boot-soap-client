@@ -171,7 +171,7 @@ public class SRLDiagnosticService implements Diagnostics {
 	}
 
 	@Override
-	public CancelOrderReasonsInfoResponse[] cancelOrderReasons()
+	public CancelOrderReasonsInfoResponse[] getCancelOrderReasons()
 			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
