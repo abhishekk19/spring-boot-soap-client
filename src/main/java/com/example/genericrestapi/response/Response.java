@@ -1,25 +1,36 @@
 package com.example.genericrestapi.response;
 
+import org.springframework.http.HttpStatus;
+
 public class Response {
 
-	private String code;
-	private String msg;
+	private HttpStatus Status;
+	private int statusCode;
+	private String reason;
 	private Object data;
 
-	public String getCode() {
-		return code;
+	public HttpStatus getStatus() {
+		return Status;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setStatus(HttpStatus status) {
+		Status = status;
 	}
 
-	public String getMsg() {
-		return msg;
+	public int getStatusCode() {
+		return statusCode;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
 	public Object getData() {

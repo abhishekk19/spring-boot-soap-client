@@ -3,6 +3,7 @@ package com.example.genericrestapi.service;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.example.genericrestapi.config.SOAPConnector;
@@ -47,17 +48,17 @@ public class SRLDiagnosticService implements Diagnostics {
 	private ApiRequest apirequest = new ApiRequest();
 
 	// SRL API
-	@Override
-	public Response getOrderDetails(String orderId) {
-
-		GetOrderStatus orderStatusRequest = apirequest.prepareGetOrderStatus(orderId);
-		GetOrderStatusResponse soapResponse = (GetOrderStatusResponse) WebServicecClient.callWebService(UrlConstants.GET_ORDER_URL,
-				orderStatusRequest,UrlConstants.getOrder_soapActionUrl);
-
-		// Constructing json as we are getting soap response asstring
-		Response response = gson.fromJson(soapResponse.getGetOrderStatusResult(), Response.class);
-		return response;
-	}
+//	@Override
+//	public Response getOrderDetails(String orderId) {
+//
+//		GetOrderStatus orderStatusRequest = apirequest.prepareGetOrderStatus(orderId);
+//		GetOrderStatusResponse soapResponse = (GetOrderStatusResponse) WebServicecClient.callWebService(UrlConstants.GET_ORDER_URL,
+//				orderStatusRequest,UrlConstants.getOrder_soapActionUrl);
+//
+//		// Constructing json as we are getting soap response asstring
+//		Response response = gson.fromJson(soapResponse.getGetOrderStatusResult(), Response.class);
+//		return response;
+//	}
 
 	@Override
 	public Response getReport(String orderId) {
@@ -69,18 +70,6 @@ public class SRLDiagnosticService implements Diagnostics {
 		Response response = gson.fromJson(soapResponse.getGetResultReportOPTResult(), Response.class);
 		return response;
 	}
-
-//	@Override
-//	public Response createOrder(CreateOrderRequest createOrderRequest) throws DatatypeConfigurationException {
-//
-//		CreateOrderOPT request = apirequest.prepareCreateOrderOPT(createOrderRequest);
-//		CreateOrderOPTResponse soapResponse = (CreateOrderOPTResponse) WebServicecClient
-//				.callWebService(UrlConstants.CREATE_ORDER_URL, request, UrlConstants.createOrder_soapActionUrl);
-//
-//		// Constructing json as we are getting soap response asstring
-//		Response response = gson.fromJson(soapResponse.getCreateOrderOPTResult(), Response.class);
-//		return response;
-//	}
 
 	@Override
 	public TestsInfoResponse getAllTests() throws JsonMappingException, JsonProcessingException {
@@ -101,25 +90,14 @@ public class SRLDiagnosticService implements Diagnostics {
 	}
 
 	@Override
-	public LabsInfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
+	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public CreateOrderResponse createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public CreateOrderResponse createOrder() throws DatatypeConfigurationException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RegisterUserInfoResponse registerUser(RegisterUserInfoRequest userInfoRequest) throws JsonMappingException, JsonProcessingException {
+	public RegisterUserInfoResponse registerUser(RegisterUserInfoRequest userInfoRequest)
+			throws JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -132,19 +110,6 @@ public class SRLDiagnosticService implements Diagnostics {
 
 	@Override
 	public UserInfoResponse getUserDetails(String userId) throws JsonMappingException, JsonProcessingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RescheduleReasonsInfoResponse saveRescheduleReasons()
-			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -185,10 +150,35 @@ public class SRLDiagnosticService implements Diagnostics {
 	}
 
 	@Override
+	public RescheduleReasonsInfoResponse saveRescheduleReasons()
+			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreateOrderResponse createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public CreateOrdeInfoResponse createOrder()
 			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+//	@Override
+//	public Response createOrder(CreateOrderRequest createOrderRequest) throws DatatypeConfigurationException {
+//
+//		CreateOrderOPT request = apirequest.prepareCreateOrderOPT(createOrderRequest);
+//		CreateOrderOPTResponse soapResponse = (CreateOrderOPTResponse) WebServicecClient
+//				.callWebService(UrlConstants.CREATE_ORDER_URL, request, UrlConstants.createOrder_soapActionUrl);
+//
+//		// Constructing json as we are getting soap response asstring
+//		Response response = gson.fromJson(soapResponse.getCreateOrderOPTResult(), Response.class);
+//		return response;
+//	}
 
 }
