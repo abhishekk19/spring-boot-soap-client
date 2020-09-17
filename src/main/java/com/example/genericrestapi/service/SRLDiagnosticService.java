@@ -17,7 +17,7 @@ import com.example.genericrestapi.createOrder.GetResultReportOPTResponse;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.ApiRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
-import com.example.genericrestapi.request.CreateOrderResponse;
+import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
@@ -157,7 +157,7 @@ public class SRLDiagnosticService implements Diagnostics {
 	}
 
 	@Override
-	public CreateOrderResponse createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException {
+	public CreateOrderRequest createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -19,6 +19,7 @@ import com.example.genericrestapi.factory.DiagnosticsFactory;
 import com.example.genericrestapi.request.CancelOrderRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.PhleboSlotsRequest;
+import com.example.genericrestapi.request.RegisterUserAddressInfoRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.request.RescheduleOrderRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
@@ -119,7 +120,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/Order/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/order", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> createOrder(@PathVariable Long diagnosticId,
 			@RequestBody CreateOrderRequest createOrderRequest)
 			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
@@ -179,7 +180,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "{diagnosticId}/UserAddress", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> registerUserAddress(@PathVariable Long diagnosticId)
+	public ResponseEntity<?> registerUserAddress(@PathVariable Long diagnosticId , @RequestBody RegisterUserAddressInfoRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
@@ -216,7 +217,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/order/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/order", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> getOrderDetails(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException {
 
@@ -235,7 +236,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/trackOrder/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/trackOrder", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> trackOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
@@ -254,7 +255,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/cancelOrder/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/cancelOrder", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> cancelOrder(@PathVariable Long diagnosticId,
 			@RequestBody CancelOrderRequest cancelOrderRequest)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
@@ -274,7 +275,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/cancelOrderReasons/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/cancelOrderReasons", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> cancelOrderReasons(@PathVariable Long diagnosticId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
@@ -293,7 +294,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/rescheduleOrder/{diagnosticId}", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/rescheduleOrder", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> rescheduleOrder(@PathVariable Long diagnosticId,
 			@RequestBody RescheduleOrderRequest rescheduleOrderRequest)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
@@ -313,7 +314,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/rescheduleReasons/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/rescheduleReasons", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> saveRescheduleReasons(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
@@ -332,7 +333,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/reports/{diagnosticId}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/reports", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> getResultReport(@PathVariable Long diagnosticId, @RequestParam String orderId) {
 
 //		resultReport.setPORDERNO("ATE000162");

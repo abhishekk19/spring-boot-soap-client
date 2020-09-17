@@ -3,7 +3,7 @@ package com.example.genericrestapi.factory;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 import com.example.genericrestapi.request.CreateOrderRequest;
-import com.example.genericrestapi.request.CreateOrderResponse;
+import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
@@ -52,7 +52,7 @@ public interface Diagnostics {
 
 	public Response getReport(String orderId);
 
-	public CreateOrderResponse createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException;
+	public CreateOrderRequest createOrder(CreateOrderRequest createOrder) throws DatatypeConfigurationException;
 
 	public CreateOrdeInfoResponse createOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException;
 }

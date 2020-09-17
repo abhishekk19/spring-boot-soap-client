@@ -19,8 +19,6 @@ public class RegisterUserInfoRequest {
 	public String sourceType;
 	public String password;
 	public String createdBy;
-	public String organizationCode;
-	public String tenantCode;
 	public String memberId;
 	public String memberEmail;
 	public String designation;
