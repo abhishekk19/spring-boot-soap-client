@@ -32,7 +32,7 @@ public class PrescriptionController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "/order/", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{diagnosticId}/prescription/", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> getPrescriptionDtails(@PathVariable Long diagnosticId) {
 		Response response = new Response();
 
