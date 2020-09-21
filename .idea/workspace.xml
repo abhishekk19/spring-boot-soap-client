@@ -14,18 +14,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="046dc7a2-dd45-42e9-99ed-e5f454114131" name="Default Changelist" comment="Updated the pojo class to parse dynamic properties">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/PrescriptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/Prescription.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/config/FactoryBeanAppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/config/FactoryBeanAppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/DiagnosticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/DiagnosticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/TestDataDiagnosticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/controllers/TestDataDiagnosticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/response/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/SRLDiagnosticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/service/SRLDiagnosticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.example.genericrestapi/spring-boot-soap-client/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/com.example.genericrestapi/spring-boot-soap-client/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/DiagnosticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/DiagnosticController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/controllers/TestDataDiagnosticController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/response/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/CallHealthDiagnosticService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/CallHealthDiagnosticService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/SRLDiagnosticService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/service/SRLDiagnosticService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/genericrestapi/test/service/SRLDiagnosticServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/BaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/BaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/DiagnosticsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/GenericFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/config/FactoryBeanAppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/config/FactoryBeanAppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/BaseFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/BaseFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/genericrestapi/factory/DiagnosticsFactory.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,38 +193,24 @@
     <option name="LAST_COMMIT_MESSAGE" value="Updated the pojo class to parse dynamic properties" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="30" y="147" width="961" height="445" maximized="true" key="DiffContextDialog" timestamp="1600328506460">
+    <state x="30" y="147" width="961" height="445" maximized="true" key="DiffContextDialog" timestamp="1600671391216">
       <screen x="0" y="0" width="1093" height="574" />
     </state>
-    <state x="30" y="147" width="961" height="445" maximized="true" key="DiffContextDialog/0.0.1093.574@0.0.1093.574" timestamp="1600328506460" />
+    <state x="30" y="147" width="961" height="445" maximized="true" key="DiffContextDialog/0.0.1093.574@0.0.1093.574" timestamp="1600671391216" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1596710350830" />
     <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1596085271213">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596085271213" />
-    <state x="314" y="0" key="RollbackChangesDialog" timestamp="1600268176873">
+    <state x="0" y="0" key="RollbackChangesDialog" timestamp="1600668777555">
       <screen x="0" y="0" width="1093" height="574" />
     </state>
-    <state x="314" y="0" key="RollbackChangesDialog/0.0.1093.574@0.0.1093.574" timestamp="1600268176873" />
+    <state x="0" y="0" key="RollbackChangesDialog/0.0.1093.574@0.0.1093.574" timestamp="1600668777555" />
     <state x="468" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596709314567" />
     <state x="226" y="41" width="898" height="533" key="Vcs.Push.Dialog.v2" timestamp="1600268228176">
       <screen x="0" y="0" width="1093" height="574" />
     </state>
     <state x="226" y="41" key="Vcs.Push.Dialog.v2/0.0.1093.574@0.0.1093.574" timestamp="1600268228176" />
     <state x="317" y="130" width="898" height="533" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1596534656402" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/genericrestapi/factory/DiagnosticsFactory.java</url>
-          <line>16</line>
-          <properties class="com.example.genericrestapi.factory.DiagnosticsFactory" method="createDiagnostics">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

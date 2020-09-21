@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.genericrestapi.factory.Diagnostics;
-import com.example.genericrestapi.factory.DiagnosticsFactory;
+import com.example.genericrestapi.factory.GenericFactory;
 import com.example.genericrestapi.request.CancelOrderRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.PhleboSlotsRequest;
@@ -53,7 +53,7 @@ public class DiagnosticController {
 	SRLDiagnosticService srlDiagnosticService;
 
 	@Autowired
-	DiagnosticsFactory diagnosticsFactory;
+	GenericFactory genericFactory;
 
 	ResponseUtil responseUtil = new ResponseUtil();
 
@@ -67,7 +67,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> getAllTests(@PathVariable Long diagnosticId)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		TestsInfoResponse response = diagnostics.getAllTests();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -86,7 +86,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> getTestsBySearchCategory(@PathVariable Long diagnosticId, @PathVariable String search)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		TestsInfoResponse response = diagnostics.getTestsBySearchCategory();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -105,7 +105,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> getLabs(@PathVariable Long diagnosticId)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		LabsInfoResponse response = diagnostics.getLabs();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -125,7 +125,7 @@ public class DiagnosticController {
 			@RequestBody CreateOrderRequest createOrderRequest)
 			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		CreateOrdeInfoResponse response = diagnostics.createOrder();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -145,7 +145,7 @@ public class DiagnosticController {
 			@RequestBody PhleboSlotsRequest phleboSlotsRequest)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		PhleboSlotsinfoResponse response = diagnostics.getPhleboSlots();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -164,7 +164,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> registerUser(@PathVariable Long diagnosticId, @RequestBody RegisterUserInfoRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		RegisterUserInfoResponse response = diagnostics.registerUser(request);
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -183,7 +183,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> registerUserAddress(@PathVariable Long diagnosticId , @RequestBody RegisterUserAddressInfoRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		RegisterUserAddressInfoResponse response = diagnostics.registerUserAddress();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -202,7 +202,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> getUserDetails(@PathVariable Long diagnosticId, @RequestParam String userId)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		UserInfoResponse response = diagnostics.getUserDetails(userId);
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -221,7 +221,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> getOrderDetails(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		Object response = diagnostics.getOrderDetails(orderId);
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -240,7 +240,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> trackOrder(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		TrackOrderInfoResponse response = diagnostics.trackOrder();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -260,7 +260,7 @@ public class DiagnosticController {
 			@RequestBody CancelOrderRequest cancelOrderRequest)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		CancelOrderInfoResponse response = diagnostics.cancelOrder();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -279,7 +279,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> cancelOrderReasons(@PathVariable Long diagnosticId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		CancelOrderReasonsInfoResponse[] response = diagnostics.getCancelOrderReasons();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -299,7 +299,7 @@ public class DiagnosticController {
 			@RequestBody RescheduleOrderRequest rescheduleOrderRequest)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		RescheduleOrderInfoResponse response = diagnostics.rescheduleOrder();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -318,7 +318,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> saveRescheduleReasons(@PathVariable Long diagnosticId, @RequestParam String orderId)
 			throws JsonParseException, JsonMappingException, IOException, DatatypeConfigurationException {
 
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		RescheduleReasonsInfoResponse response = diagnostics.saveRescheduleReasons();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
@@ -337,7 +337,7 @@ public class DiagnosticController {
 	public ResponseEntity<?> getResultReport(@PathVariable Long diagnosticId, @RequestParam String orderId) {
 
 //		resultReport.setPORDERNO("ATE000162");
-		Diagnostics diagnostics = diagnosticsFactory.createDiagnostics(diagnosticId);
+		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
 		Object response = diagnostics.getReport(orderId);
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);

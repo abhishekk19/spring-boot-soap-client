@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.genericrestapi.service.CallHealthDiagnosticService;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 
-public class DiagnosticsFactory implements BaseFactory {
+public class GenericFactory implements BaseFactory {
 
 	@Autowired
 	private SRLDiagnosticService srlDiagnosticService;
@@ -30,6 +30,23 @@ public class DiagnosticsFactory implements BaseFactory {
 			throw new IllegalArgumentException("No such Diagnostics");
 		}
 		return diagnostics;
+	}
+
+	@Override
+	public Prescription createPrescriptions(Long type) {
+		Prescription prescription = null;
+		switch (type.intValue()) {
+		case 1:
+	//		prescription = HealthPlixService;
+			break;
+            case 2:
+   //         	prescription = MfineService;
+                break;
+		default:
+			throw new IllegalArgumentException("No such Prescriptions");
+		}
+		
+		return prescription;
 	}
 
 }
