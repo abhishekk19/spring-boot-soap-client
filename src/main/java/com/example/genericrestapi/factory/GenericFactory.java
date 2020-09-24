@@ -3,6 +3,7 @@ package com.example.genericrestapi.factory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.genericrestapi.service.CallHealthDiagnosticService;
+import com.example.genericrestapi.service.HealthPlixService;
 import com.example.genericrestapi.service.SRLDiagnosticService;
 
 public class GenericFactory implements BaseFactory {
@@ -12,6 +13,9 @@ public class GenericFactory implements BaseFactory {
 	
 	@Autowired
 	private CallHealthDiagnosticService callHealthDiagnosticService;
+	
+	@Autowired
+	private HealthPlixService healthPlixService;
 
 	@Override
 	public Diagnostics createDiagnostics(Long type) {
@@ -37,7 +41,7 @@ public class GenericFactory implements BaseFactory {
 		Prescription prescription = null;
 		switch (type.intValue()) {
 		case 1:
-	//		prescription = HealthPlixService;
+			prescription = healthPlixService;
 			break;
             case 2:
    //         	prescription = MfineService;

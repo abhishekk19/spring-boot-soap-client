@@ -4,7 +4,9 @@ import javax.xml.datatype.DatatypeConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.example.genericrestapi.config.RestService;
 import com.example.genericrestapi.config.SOAPConnector;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.CreateOrderRequest;
@@ -34,12 +36,17 @@ public class CallHealthDiagnosticService implements Diagnostics {
 
 	@Autowired
 	SOAPConnector WebServicecClient;
+	
+	@Autowired
+	RestService restService;
 
 	private Gson gson = new Gson();
 
 
 	public TestsInfoResponse getAllTests() throws JsonMappingException, JsonProcessingException {
 
+ String a=restService.getRestServiceCall("https://gorest.co.in/public-api/products");
+		
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		String json = "{\r\n" + "    \"status\": \"SUCCESS\",\r\n" + "    \"statusCode\": 200,\r\n"
@@ -107,7 +114,7 @@ public class CallHealthDiagnosticService implements Diagnostics {
 	@Override
 	public CreateOrdeInfoResponse createOrder() throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
-
+		//String a=restService.postServiceCall(request, "https://postman-echo.com/post", responseType)
 		String json = "{\r\n" + 
 				"    \"status\": \"SUCCESS\",\r\n" + 
 				"    \"statusCode\": 200,\r\n" + 
