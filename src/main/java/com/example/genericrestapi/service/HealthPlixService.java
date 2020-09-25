@@ -3,6 +3,7 @@ package com.example.genericrestapi.service;
 import org.springframework.stereotype.Service;
 
 import com.example.genericrestapi.factory.Prescription;
+import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -20,5 +21,27 @@ public class HealthPlixService implements Prescription {
 
 		return response;
 	}
+	
+	
+	@Override
+	public BookDoctorAppointmentResponse bookDoctorAppointment() throws JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{\r\n" + 
+				"   \"hplx_appointment_id\":\"\",\r\n" + 
+				"   \"hplx_doc_id\":\"\",\r\n" + 
+				"   \"policy_id\":\"\",\r\n" + 
+				"   \"status\":\"slot-na/booked/error\",\r\n" + 
+				"   \"appointment_details\":{\r\n" + 
+				"      \"appointment_date\":\"\",\r\n" + 
+				"      \"appointment_time\":\"\",\r\n" + 
+				"      \"appointment_type\":\"\"\r\n" + 
+				"   }\r\n" + 
+				"}";
+		BookDoctorAppointmentResponse response = objectMapper.readValue(json, BookDoctorAppointmentResponse.class);
+
+		return response;
+	}
+
 
 }

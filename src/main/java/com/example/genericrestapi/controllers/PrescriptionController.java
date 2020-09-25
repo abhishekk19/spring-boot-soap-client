@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.genericrestapi.factory.GenericFactory;
 import com.example.genericrestapi.factory.Prescription;
+import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
-import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.util.ResponseUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -29,7 +29,8 @@ public class PrescriptionController {
 	@Autowired
 	GenericFactory genericFactory;
 
-	ResponseUtil responseUtil = new ResponseUtil();
+	@Autowired
+	ResponseUtil responseUtil ;
 
 	@ApiOperation(value = "get Doctor Slots", response = Iterable.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved "),
@@ -47,25 +48,26 @@ public class PrescriptionController {
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
 		}
-		return new ResponseEntity<>((response), HttpStatus.OK);
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, responseUtil.getMessage)),
+				HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "get prescription", response = Iterable.class)
+	@ApiOperation(value = "Book Doctor Appointment", response = Iterable.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved "),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "{diagnosticId}/prescription/", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<?> getPrescriptionDtails(@PathVariable Long diagnosticId) {
-		Response response = new Response();
-
-		Prescription prescription = genericFactory.createPrescriptions(diagnosticId);
-//		TestsInfoResponse response = diagnostics.getAllTests();
-//		if (response == null) {
-//			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
-//		}
-		return new ResponseEntity<>((response), HttpStatus.OK);
+	@RequestMapping(value = "{partnerId}/DoctorAppointment/", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<?> bookDoctorAppointment(@PathVariable Long partnerId)
+			throws JsonMappingException, JsonProcessingException {
+		Prescription prescription = genericFactory.createPrescriptions(partnerId);
+		BookDoctorAppointmentResponse response = prescription.bookDoctorAppointment();
+		if (response == null) {
+			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
+		}
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, responseUtil.postMessage)),
+				HttpStatus.OK);
 	}
 
 }

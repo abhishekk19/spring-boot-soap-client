@@ -43,9 +43,9 @@ public class GenericFactory implements BaseFactory {
 		case 1:
 			prescription = healthPlixService;
 			break;
-            case 2:
-   //         	prescription = MfineService;
-                break;
+//            case 2:
+//            	prescription = MfineService;
+//                break;
 		default:
 			throw new IllegalArgumentException("No such Prescriptions");
 		}
