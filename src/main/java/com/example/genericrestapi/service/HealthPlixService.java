@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.example.genericrestapi.factory.Prescription;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
+import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
+import com.example.genericrestapi.healthplix.response.ValidateOtpResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,6 +44,29 @@ public class HealthPlixService implements Prescription {
 
 		return response;
 	}
+	
+	
+	@Override
+	public ValidateOtpResponse validateOtp() throws JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{ \"status\" :\"authenticated\", \"event_id\": \"\" , \"policy_id\":\"1234\"}";
+		ValidateOtpResponse response = objectMapper.readValue(json, ValidateOtpResponse.class);
+
+		return response;
+	}
+	
+	
+	@Override
+	public GenerateOtpResponse generateOtp() throws JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{ \"patient_details\" : { \"name\" : \"Alex\", \"gender\" : \"M\", \"dob\" : \"\"} , \"otp_status\" : \"sent/not-sent\"}";
+		GenerateOtpResponse response = objectMapper.readValue(json, GenerateOtpResponse.class);
+
+		return response;
+	}
+
 
 
 }
