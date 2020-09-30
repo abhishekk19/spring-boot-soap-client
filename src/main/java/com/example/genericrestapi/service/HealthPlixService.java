@@ -6,6 +6,7 @@ import com.example.genericrestapi.factory.Prescription;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
 import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
+import com.example.genericrestapi.healthplix.response.PrescriptionResponse;
 import com.example.genericrestapi.healthplix.response.ValidateOtpResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -63,6 +64,16 @@ public class HealthPlixService implements Prescription {
 
 		String json = "{ \"patient_details\" : { \"name\" : \"Alex\", \"gender\" : \"M\", \"dob\" : \"\"} , \"otp_status\" : \"sent/not-sent\"}";
 		GenerateOtpResponse response = objectMapper.readValue(json, GenerateOtpResponse.class);
+
+		return response;
+	}
+
+	@Override
+	public PrescriptionResponse getPrescription() throws JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{ \"hplx_appointment_id\" : \"\" ,\"hplx_doc_id\":\"\", \"policy_id\": \"\" , \"rx_raw\" : {} , \"rx_pdf\" : \"url\" , \"rx_date\":\"\" }";
+		PrescriptionResponse response = objectMapper.readValue(json, PrescriptionResponse.class);
 
 		return response;
 	}
