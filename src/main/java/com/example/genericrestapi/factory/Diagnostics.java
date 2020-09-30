@@ -3,7 +3,6 @@ package com.example.genericrestapi.factory;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 import com.example.genericrestapi.request.CreateOrderRequest;
-import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;

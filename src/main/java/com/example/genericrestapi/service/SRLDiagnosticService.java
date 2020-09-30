@@ -3,20 +3,14 @@ package com.example.genericrestapi.service;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.example.genericrestapi.config.SOAPConnector;
 import com.example.genericrestapi.constants.UrlConstants;
-import com.example.genericrestapi.createOrder.CreateOrderOPT;
-import com.example.genericrestapi.createOrder.CreateOrderOPTResponse;
-import com.example.genericrestapi.createOrder.GetOrderStatus;
-import com.example.genericrestapi.createOrder.GetOrderStatusResponse;
 import com.example.genericrestapi.createOrder.GetResultReportOPT;
 import com.example.genericrestapi.createOrder.GetResultReportOPTResponse;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.ApiRequest;
-import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
