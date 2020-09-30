@@ -1,6 +1,7 @@
 package com.example.genericrestapi.response;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 
@@ -10,27 +11,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LabsInfoResponse {
 
-	@JsonProperty("status")
-	private String status;
-
-	@JsonProperty("statusCode")
+	private ApiStatus Status;
 	private int statusCode;
 
-	@JsonProperty("dataObject")
-	private List<LabInfo> dataObject;
+	@JsonProperty("lab")
+	private Map<String, List<LabInfo>> lab;
 
-	@JsonProperty("results_count")
-	private Long resultsCount;
-
-	@JsonProperty("reason")
 	private String reason;
 
-	public String getStatus() {
-		return status;
+	public ApiStatus getStatus() {
+		return Status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(ApiStatus status) {
+		Status = status;
 	}
 
 	public int getStatusCode() {
@@ -41,28 +35,20 @@ public class LabsInfoResponse {
 		this.statusCode = statusCode;
 	}
 
-	public List<LabInfo> getDataObject() {
-		return dataObject;
-	}
-
-	public void setDataObject(List<LabInfo> dataObject) {
-		this.dataObject = dataObject;
-	}
-
-	public Long getResultsCount() {
-		return resultsCount;
-	}
-
-	public void setResultsCount(Long resultsCount) {
-		this.resultsCount = resultsCount;
-	}
-
 	public String getReason() {
 		return reason;
 	}
 
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+
+	public Map<String, List<LabInfo>> getLab() {
+		return lab;
+	}
+
+	public void setLab(Map<String, List<LabInfo>> lab) {
+		this.lab = lab;
 	}
 
 }

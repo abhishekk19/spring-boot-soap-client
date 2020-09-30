@@ -1,39 +1,24 @@
 package com.example.genericrestapi.response;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LabInfo {
 
-	@JsonProperty("code")
-	private String code;
-	
-	@JsonProperty("branch_id")
-	private Long branchId;
-	
 	@JsonProperty("name")
 	private String name;
-	
-	@JsonProperty("avg_rating")
-	private Float avgRating;
-	
-	@JsonProperty("profile_pic")
-	private String profilePic;
 
-	public String getCode() {
-		return code;
-	}
+	@JsonProperty("code")
+	private int code;
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+	@JsonProperty("branches")
+	private List<Branch> dataObject;
 
-	public Long getBranchId() {
-		return branchId;
-	}
-
-	public void setBranchId(Long branchId) {
-		this.branchId = branchId;
-	}
+	@JsonProperty("distance")
+	private Long distance;
 
 	public String getName() {
 		return name;
@@ -43,20 +28,30 @@ public class LabInfo {
 		this.name = name;
 	}
 
-	public Float getAvgRating() {
-		return avgRating;
+	public int getCode() {
+		return code;
 	}
 
-	public void setAvgRating(Float avgRating) {
-		this.avgRating = avgRating;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
-	public String getProfilePic() {
-		return profilePic;
+	public List<Branch> getDataObject() {
+		return dataObject;
 	}
 
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
+	public void setDataObject(List<Branch> dataObject) {
+		this.dataObject = dataObject;
+	}
+
+	public Long getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Long distance) {
+		this.distance = distance;
 	}
 	
+	
+
 }

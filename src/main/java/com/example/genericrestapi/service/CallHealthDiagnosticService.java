@@ -4,7 +4,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.example.genericrestapi.config.RestService;
 import com.example.genericrestapi.config.SOAPConnector;
@@ -90,11 +89,12 @@ public class CallHealthDiagnosticService implements Diagnostics {
 	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
-//		String json = "{ \"method\":\"corporate/services/drReddy/associatesByServiceCodes\", \"type\":\"POST\", \"application\":\"ihs\", \"latitude\": 17.638454, \"longitude\": 78.49792479999999, \"service_item_code\": \"DRL00001,DRL00001\", \"tenantCode\": \"1000143\", \"organizationCode\": \"100229\"\r\n"
-//				+ "}";
-//		LabsInfoRequest request = objectMapper.readValue(json, LabsInfoRequest.class);
-//
-//		LabsInfoResponse response =(LabsInfoResponse) restService.postServiceCall(request, SOURCE_URL, LabsInfoResponse.class);
+		String json = "{ \"method\":\"corporate/services/drReddy/associatesByServiceCodes\", \"type\":\"POST\", \"application\":\"ihs\", \"latitude\": 17.638454, \"longitude\": 78.49792479999999, \"service_item_code\": \"DRL00001,DRL00001\", \"tenantCode\": \"1000143\", \"organizationCode\": \"100229\"\r\n" + 
+				"}";
+		LabsInfoRequest request = objectMapper.readValue(json, LabsInfoRequest.class);
+		//UserDetailsRequest request = callHealthApiRequest.prepareUserDetailsRequest("8956088");
+
+		Object o = restService.postServiceCall(request, SOURCE_URL, LabsInfoResponse.class);
 		LabsInfoResponse response = new LabsInfoResponse();
 
 		return response;
