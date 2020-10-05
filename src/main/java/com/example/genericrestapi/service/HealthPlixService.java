@@ -6,6 +6,7 @@ import com.example.genericrestapi.factory.Prescription;
 import com.example.genericrestapi.healthplix.response.AppointmentDetailsResponse;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
+import com.example.genericrestapi.healthplix.response.DoctortDetailsResponse;
 import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
 import com.example.genericrestapi.healthplix.response.PrescriptionResponse;
 import com.example.genericrestapi.healthplix.response.ValidateOtpResponse;
@@ -91,6 +92,16 @@ public class HealthPlixService implements Prescription {
 		return response;
 	}
 
+	
+	@Override
+	public DoctortDetailsResponse getDoctortDetails() throws JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{\"hplx_doc_id\":\"\", \"doc_name\" :\"\", \"speciality\" : \"\", \"lat\" : \"\", \"longt\" : \"\", \"clinic_name\" :\"\", \"consultation_fee\" :\"\", \"last_modified\" : \"\" , \"Address\" : \"\" , \"pincode\" :\"\" , \"phone\" : \"\", \"email\" : \"\" , \"status\" : \"\"}";
+		DoctortDetailsResponse response = objectMapper.readValue(json, DoctortDetailsResponse.class);
+
+		return response;
+	}
 
 
 }

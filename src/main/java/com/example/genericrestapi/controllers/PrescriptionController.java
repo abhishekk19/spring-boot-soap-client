@@ -14,6 +14,7 @@ import com.example.genericrestapi.factory.Prescription;
 import com.example.genericrestapi.healthplix.response.AppointmentDetailsResponse;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
+import com.example.genericrestapi.healthplix.response.DoctortDetailsResponse;
 import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
 import com.example.genericrestapi.healthplix.response.PrescriptionResponse;
 import com.example.genericrestapi.healthplix.response.ValidateOtpResponse;
@@ -52,7 +53,7 @@ public class PrescriptionController {
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
 		}
-		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, responseUtil.getMessage)),
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.getMessage)),
 				HttpStatus.OK);
 	}
 
@@ -81,7 +82,7 @@ public class PrescriptionController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "{partnerId}/validate-otp/", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{partnerId}/validate-otp/", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> validateOtp(@PathVariable Long partnerId , @RequestParam String policyId , @RequestParam String otp)
 			throws JsonMappingException, JsonProcessingException {
 		Prescription prescription = genericFactory.createPrescriptions(partnerId);
@@ -99,7 +100,7 @@ public class PrescriptionController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
-	@RequestMapping(value = "{partnerId}/generate-otp", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{partnerId}/generate-otp", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> generateOtp(@PathVariable Long partnerId , @RequestParam String policyId , @RequestParam String sendOtp)
 			throws JsonMappingException, JsonProcessingException {
 		Prescription prescription = genericFactory.createPrescriptions(partnerId);
@@ -126,7 +127,7 @@ public class PrescriptionController {
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
 		}
-		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.postMessage)),
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.getMessage)),
 				HttpStatus.OK);
 	}
 	
@@ -144,7 +145,26 @@ public class PrescriptionController {
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
 		}
-		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.postMessage)),
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.getMessage)),
+				HttpStatus.OK);
+	}
+	
+	
+	@ApiOperation(value = "get Doctor Details", response = Iterable.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved "),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "{partnerId}/doctor", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getDoctorDetails(@PathVariable Long partnerId , @RequestParam String docId , @RequestParam String empanelment_id )
+			throws JsonMappingException, JsonProcessingException {
+		Prescription prescription = genericFactory.createPrescriptions(partnerId);
+		DoctortDetailsResponse response = prescription.getDoctortDetails();
+		if (response == null) {
+			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
+		}
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.getMessage)),
 				HttpStatus.OK);
 	}
 
