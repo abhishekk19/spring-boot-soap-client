@@ -1,5 +1,6 @@
 package com.example.genericrestapi.factory;
 
+import com.example.genericrestapi.healthplix.response.AppointmentDetailsResponse;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
 import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
@@ -19,6 +20,8 @@ public interface Prescription {
 	GenerateOtpResponse generateOtp() throws JsonMappingException, JsonProcessingException;
 
 	PrescriptionResponse getPrescription() throws JsonMappingException, JsonProcessingException;
+
+	AppointmentDetailsResponse getAppointmentDetails() throws JsonMappingException, JsonProcessingException;
 
 	
 }

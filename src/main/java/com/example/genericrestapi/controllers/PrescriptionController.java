@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.genericrestapi.factory.GenericFactory;
 import com.example.genericrestapi.factory.Prescription;
+import com.example.genericrestapi.healthplix.response.AppointmentDetailsResponse;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
 import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
@@ -122,6 +123,24 @@ public class PrescriptionController {
 			throws JsonMappingException, JsonProcessingException {
 		Prescription prescription = genericFactory.createPrescriptions(partnerId);
 		PrescriptionResponse response = prescription.getPrescription();
+		if (response == null) {
+			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
+		}
+		return new ResponseEntity<>((responseUtil.generateGenericResponse(response, ResponseUtil.postMessage)),
+				HttpStatus.OK);
+	}
+	
+	@ApiOperation(value = "get Appointment Details", response = Iterable.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved "),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+
+	@RequestMapping(value = "{partnerId}/appointment", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> getAppointmentDetails(@PathVariable Long partnerId , @RequestParam String docId , @RequestParam String appointmentId)
+			throws JsonMappingException, JsonProcessingException {
+		Prescription prescription = genericFactory.createPrescriptions(partnerId);
+		AppointmentDetailsResponse response = prescription.getAppointmentDetails();
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
 		}

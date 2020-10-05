@@ -3,6 +3,7 @@ package com.example.genericrestapi.service;
 import org.springframework.stereotype.Service;
 
 import com.example.genericrestapi.factory.Prescription;
+import com.example.genericrestapi.healthplix.response.AppointmentDetailsResponse;
 import com.example.genericrestapi.healthplix.response.BookDoctorAppointmentResponse;
 import com.example.genericrestapi.healthplix.response.DoctorAppointmentSlotResponse;
 import com.example.genericrestapi.healthplix.response.GenerateOtpResponse;
@@ -74,6 +75,18 @@ public class HealthPlixService implements Prescription {
 
 		String json = "{ \"hplx_appointment_id\" : \"\" ,\"hplx_doc_id\":\"\", \"policy_id\": \"\" , \"rx_raw\" : {} , \"rx_pdf\" : \"url\" , \"rx_date\":\"\" }";
 		PrescriptionResponse response = objectMapper.readValue(json, PrescriptionResponse.class);
+
+		return response;
+	}
+	
+	
+	@Override
+	public AppointmentDetailsResponse getAppointmentDetails() throws JsonMappingException, JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		String json = "{ \"hplx_appointment_id\" : \"\" , \"hplx_doc_id\" :\"\" , \"policy_id\" :\"\" , \"status\" : \"cancelled/confirmed\" , \"appointment_details\" : { \"appointment_date\" : \"\" , \"appointment_time\" : \"\" , \"appointment_type\" : \"\" } } \r\n" + 
+				"";
+		AppointmentDetailsResponse response = objectMapper.readValue(json, AppointmentDetailsResponse.class);
 
 		return response;
 	}
