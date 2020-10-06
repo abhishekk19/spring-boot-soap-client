@@ -8,9 +8,9 @@ public class UserDetailsRequest {
 	public String method;
 	public String type;
 	public String application;
-	public Request request;
+	public Data request;
 
-	public static class Request {
+	public static class Data {
 		private String mrn;
 
 		public String getMrn() {
@@ -46,11 +46,11 @@ public class UserDetailsRequest {
 		this.application = application;
 	}
 
-	public Request getRequest() {
+	public Data getRequest() {
 		return request;
 	}
 
-	public void setRequest(Request request) {
+	public void setRequest(Data request) {
 		this.request = request;
 	}
 	

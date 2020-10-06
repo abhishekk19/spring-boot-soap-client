@@ -1,9 +1,6 @@
 package com.example.genericrestapi.response;
 
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.http.HttpStatus;
+import java.util.LinkedHashMap;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,20 +8,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LabsInfoResponse {
 
-	private ApiStatus Status;
+	@JsonProperty("Status")
+	private ApiStatus status;
+
+	@JsonProperty("statusCode")
 	private int statusCode;
 
 	@JsonProperty("lab")
-	private Map<String, List<LabInfo>> lab;
+	private LinkedHashMap<String, LabInfo> lab;
 
+	@JsonProperty("reason")
 	private String reason;
 
 	public ApiStatus getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(ApiStatus status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public int getStatusCode() {
@@ -43,11 +44,11 @@ public class LabsInfoResponse {
 		this.reason = reason;
 	}
 
-	public Map<String, List<LabInfo>> getLab() {
+	public LinkedHashMap<String, LabInfo> getLab() {
 		return lab;
 	}
 
-	public void setLab(Map<String, List<LabInfo>> lab) {
+	public void setLab(LinkedHashMap<String, LabInfo> lab) {
 		this.lab = lab;
 	}
 

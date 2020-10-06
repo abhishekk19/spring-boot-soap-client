@@ -1,5 +1,7 @@
 package com.example.genericrestapi.service;
 
+import java.util.LinkedHashMap;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,14 +91,24 @@ public class CallHealthDiagnosticService implements Diagnostics {
 	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		String json = "{ \"method\":\"corporate/services/drReddy/associatesByServiceCodes\", \"type\":\"POST\", \"application\":\"ihs\", \"latitude\": 17.638454, \"longitude\": 78.49792479999999, \"service_item_code\": \"DRL00001,DRL00001\", \"tenantCode\": \"1000143\", \"organizationCode\": \"100229\"\r\n" + 
-				"}";
-		LabsInfoRequest request = objectMapper.readValue(json, LabsInfoRequest.class);
-		//UserDetailsRequest request = callHealthApiRequest.prepareUserDetailsRequest("8956088");
+//		String json = "{\r\n" + 
+//				"\"method\":\"corporate/services/drReddy/associatesByServiceCodes\",\r\n" + 
+//				"\"type\":\"POST\",\r\n" + 
+//				"\"application\":\"ihs\",\r\n" + 
+//				"\"request\":{\r\n" + 
+//				"\"latitude\": 17.4146,\r\n" + 
+//				"\"longitude\": 78.4383,\r\n" + 
+//				"\"service_item_code\": \"DRL00001,DRL00001\",\r\n" + 
+//				"\"tenantCode\": \"1000143\",\r\n" + 
+//				"\"organizationCode\": \"100229\"\r\n" + 
+//				"}\r\n" + 
+//				"}";
+//		LabsInfoRequest request = objectMapper.readValue(json, LabsInfoRequest.class);
+		LabsInfoRequest request = callHealthApiRequest.prepareLabsInfoRequest(17.4146, 78.4383);
 
-		Object o = restService.postServiceCall(request, SOURCE_URL, LabsInfoResponse.class);
+		LinkedHashMap o = (LinkedHashMap) restService.postServiceCall(request, SOURCE_URL, Object.class);
 		LabsInfoResponse response = new LabsInfoResponse();
-
+		response.setLab(o);
 		return response;
 
 	}
