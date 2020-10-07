@@ -2,31 +2,31 @@ package com.example.genericrestapi.request;
 
 public class LabsInfoRequest {
 
-	public String method;
-	public String type;
-	public String application;
-	public Data request;
+	private String method;
+	private String type;
+	private String application;
+	private Data request;
 
-	public static class Data {
-		public double latitude;
-		public double longitude;
-		public String service_item_code;
-		public String tenantCode;
-		public String organizationCode;
+	public class Data {
+		private Double latitude;
+		private Double longitude;
+		private String service_item_code;
+		private String tenantCode;
+		private String organizationCode;
 
-		public double getLatitude() {
+		public Double getLatitude() {
 			return latitude;
 		}
 
-		public void setLatitude(double latitude) {
+		public void setLatitude(Double latitude) {
 			this.latitude = latitude;
 		}
 
-		public double getLongitude() {
+		public Double getLongitude() {
 			return longitude;
 		}
 
-		public void setLongitude(double longitude) {
+		public void setLongitude(Double longitude) {
 			this.longitude = longitude;
 		}
 

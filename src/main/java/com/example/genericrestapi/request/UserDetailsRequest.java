@@ -10,7 +10,7 @@ public class UserDetailsRequest {
 	public String application;
 	public Data request;
 
-	public static class Data {
+	public class Data {
 		private String mrn;
 
 		public String getMrn() {

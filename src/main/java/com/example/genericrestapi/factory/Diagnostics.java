@@ -27,7 +27,7 @@ public interface Diagnostics {
 	
 	public TestsInfoResponse getTestsBySearchCategory() throws JsonMappingException, JsonProcessingException;
 
-	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException;
+	public LabsInfoResponse getLabs(Double latitude, Double longitude) throws JsonMappingException, JsonProcessingException;
 	
 	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException;
 	

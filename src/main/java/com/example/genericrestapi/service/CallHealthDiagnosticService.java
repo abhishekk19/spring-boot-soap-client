@@ -88,7 +88,7 @@ public class CallHealthDiagnosticService implements Diagnostics {
 
 	}
 
-	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException {
+	public LabsInfoResponse getLabs(Double latitude, Double longitude) throws JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
 //		String json = "{\r\n" + 
@@ -104,9 +104,9 @@ public class CallHealthDiagnosticService implements Diagnostics {
 //				"}\r\n" + 
 //				"}";
 //		LabsInfoRequest request = objectMapper.readValue(json, LabsInfoRequest.class);
-		LabsInfoRequest request = callHealthApiRequest.prepareLabsInfoRequest(17.4146, 78.4383);
+		LabsInfoRequest request = callHealthApiRequest.prepareLabsInfoRequest(latitude, longitude);
 
-		LinkedHashMap o = (LinkedHashMap) restService.postServiceCall(request, SOURCE_URL, Object.class);
+		LinkedHashMap<String, LabInfo> o = (LinkedHashMap<String, LabInfo>) restService.postServiceCall(request, SOURCE_URL, Object.class);
 		LabsInfoResponse response = new LabsInfoResponse();
 		response.setLab(o);
 		return response;
@@ -200,29 +200,6 @@ public class CallHealthDiagnosticService implements Diagnostics {
 		UserInfoResponse response =(UserInfoResponse) restService.postServiceCall(request, SOURCE_URL, UserInfoResponse.class);
 
 		return response;
-	}
-
-	public RegisterUserAddressInfoResponse getUserDetails() throws JsonMappingException, JsonProcessingException {
-		ObjectMapper objectMapper = new ObjectMapper();
-
-		String json = "{\r\n" + "    \"status\": \"SUCCESS\",\r\n" + "    \"statusCode\": 200,\r\n"
-				+ "    \"dataObject\": {\r\n" + "        \"authMrn\": null,\r\n" + "        \"accessToken\": null,\r\n"
-				+ "        \"source\": null,\r\n" + "        \"createdDate\": \"2020-09-02T05:30:38.672+0000\",\r\n"
-				+ "        \"modifiedDate\": \"2020-09-02T05:30:38.672+0000\",\r\n"
-				+ "        \"customerAddrID\": 23393,\r\n" + "        \"customerMRNID\": \"8000001\",\r\n"
-				+ "        \"addressType\": \"Home5\",\r\n" + "        \"isDefaultAddress\": 0,\r\n"
-				+ "        \"country\": \"India\",\r\n" + "        \"state\": \"Andhra Pradesh\",\r\n"
-				+ "        \"district\": \"Visakhapatnam\",\r\n" + "        \"mandal\": \"Visakhapatnam\",\r\n"
-				+ "        \"city\": \"Visakhapatnam\",\r\n" + "        \"address\": \"Near Beach Road, Vizag\",\r\n"
-				+ "        \"area\": \"Rk Beach\",\r\n" + "        \"landmark\": \"novotel\",\r\n"
-				+ "        \"zipcode\": \"530027\",\r\n" + "        \"latitude\": \"2.32\",\r\n"
-				+ "        \"longitude\": \"1.12\",\r\n" + "        \"enabled\": 1,\r\n"
-				+ "        \"createdBy\": \"admin\",\r\n" + "        \"modifiedBy\": null\r\n" + "    },\r\n"
-				+ "      \"reason\": \"Details inserted successfully\"\r\n" + "}\r\n" + "";
-		RegisterUserAddressInfoResponse response = objectMapper.readValue(json, RegisterUserAddressInfoResponse.class);
-
-		return response;
-
 	}
 
 	@Override

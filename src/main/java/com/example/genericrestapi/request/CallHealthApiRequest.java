@@ -13,7 +13,7 @@ public class CallHealthApiRequest {
 
 	public UserDetailsRequest prepareUserDetailsRequest(String mrnId) {
 		UserDetailsRequest userDetailsRequest = new UserDetailsRequest();
-		UserDetailsRequest.Data request = new UserDetailsRequest.Data();
+		UserDetailsRequest.Data request = userDetailsRequest.new Data() ;
 		userDetailsRequest.setMethod(USER_DETAILS_METHOD);
 		userDetailsRequest.setType(POST_TYPE);
 		userDetailsRequest.setApplication(GCM_APPLICATION);
@@ -24,7 +24,7 @@ public class CallHealthApiRequest {
 
 	public LabsInfoRequest prepareLabsInfoRequest(Double latitude, Double longitude) {
 		LabsInfoRequest labsInfoRequest = new LabsInfoRequest();
-		LabsInfoRequest.Data request = new LabsInfoRequest.Data();
+		LabsInfoRequest.Data request = labsInfoRequest.new Data();
 		labsInfoRequest.setMethod(LABS_METHOD);
 		labsInfoRequest.setType(POST_TYPE);
 		labsInfoRequest.setApplication(IHS_APPLICATION);

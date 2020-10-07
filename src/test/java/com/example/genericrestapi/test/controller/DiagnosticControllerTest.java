@@ -1,46 +1,73 @@
-//package com.example.genericrestapi.test.controller;
+package com.example.genericrestapi.test.controller;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.internal.matchers.Any;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import com.example.genericrestapi.config.SOAPConnector;
+import com.example.genericrestapi.constants.UrlConstants;
+import com.example.genericrestapi.controllers.DiagnosticController;
+import com.example.genericrestapi.createOrder.GetOrderStatus;
+import com.example.genericrestapi.createOrder.GetOrderStatusResponse;
+import com.example.genericrestapi.factory.Diagnostics;
+import com.example.genericrestapi.request.ApiRequest;
+import com.example.genericrestapi.response.ApiStatus;
+import com.example.genericrestapi.response.LabsInfoResponse;
+import com.example.genericrestapi.response.Response;
+import com.example.genericrestapi.service.CallHealthDiagnosticService;
+import com.example.genericrestapi.service.SRLDiagnosticService;
+
+public class DiagnosticControllerTest  {
+
+	@InjectMocks
+	DiagnosticController diagnosticController;
+
+	@Mock
+	Diagnostics diagnostics;
+
+	//@Mock
+	//DiagnosticsFactory diagnosticsFactory;
+
+	@Mock
+	CallHealthDiagnosticService callHealthDiagnosticService;
+	
+	
+	
+	@Test
+	public void testGetLabs() throws Exception {
+		String uri = "/orders/1?orderId=ATG000004";
+		LabsInfoResponse res = new LabsInfoResponse();
+		res.setStatusCode(200);
+		res.setStatus(ApiStatus.SUCCESS);
 //
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertTrue;
-//import static org.mockito.Mockito.when;
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+//		GetOrderStatusResponse getOrderStatusResponse = new GetOrderStatusResponse();
+//		GetOrderStatus orderStatusRequest = apirequest.prepareGetOrderStatus("test123");
 //
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.mockito.InjectMocks;
-//import org.mockito.Mock;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-//import org.springframework.http.MediaType;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.test.web.servlet.MvcResult;
-//import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-//import com.example.genericrestapi.config.SOAPConnector;
-//import com.example.genericrestapi.constants.UrlConstants;
-//import com.example.genericrestapi.controllers.DiagnosticController;
-//import com.example.genericrestapi.createOrder.GetOrderStatus;
-//import com.example.genericrestapi.createOrder.GetOrderStatusResponse;
-//import com.example.genericrestapi.factory.Diagnostics;
-//import com.example.genericrestapi.factory.DiagnosticsFactory;
-//import com.example.genericrestapi.request.ApiRequest;
-//import com.example.genericrestapi.response.Response;
-//import com.example.genericrestapi.service.SRLDiagnosticService;
-//
-//public class DiagnosticControllerTest extends AbstractTest {
-//
-//	@InjectMocks
-//	DiagnosticController diagnosticController;
-//
-//	@Mock
-//	Diagnostics diagnostics;
-//
-//	@Mock
-//	DiagnosticsFactory diagnosticsFactory;
-//
-//	@Mock
-//	SRLDiagnosticService srlDiagnosticService;
-//
+//		when(diagnosticsFactory.createDiagnostics(1L)).thenReturn(new SRLDiagnosticService());
+////		when((GetOrderStatusResponse) WebServicecClient.callWebService(UrlConstants.GET_ORDER_URL, orderStatusRequest,
+////				UrlConstants.getOrder_soapActionUrl)).thenReturn(getOrderStatusResponse);
+//		when(diagnostics.getOrder("")).thenReturn(res);
+		when(callHealthDiagnosticService.getLabs(1.0, 1.0)).thenReturn(res);
+		ResponseEntity<?> response = diagnosticController.getLabs(2L, 1.2, 1.0);
+		assertEquals("Accepted", response.getStatusCode());
+//      Product[] productlist = super.mapFromJson(content, Product[].class);
+//      assertTrue(productlist.length > 0);
+	}
+
 //	@Test
 //	public void getOrder() throws Exception {
 //		String uri = "/orders/1?orderId=ATG000004";
@@ -103,4 +130,4 @@
 //      String content = mvcResult.getResponse().getContentAsString();
 //      assertEquals(content, "Product is deleted successsfully");
 //   }
-//}
+}

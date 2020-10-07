@@ -102,11 +102,11 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "{diagnosticId}/labs", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<?> getLabs(@PathVariable Long diagnosticId)
+	public ResponseEntity<?> getLabs(@PathVariable Long diagnosticId ,@RequestParam Double latitude,@RequestParam Double longitude)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);
-		LabsInfoResponse response = diagnostics.getLabs();
+		LabsInfoResponse response = diagnostics.getLabs(latitude, longitude);
 		if (response == null) {
 			return new ResponseEntity<>((responseUtil.generateNoAPIResponse()), HttpStatus.SERVICE_UNAVAILABLE);
 		}
