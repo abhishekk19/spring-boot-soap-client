@@ -20,7 +20,9 @@ import com.example.genericrestapi.config.RestService;
 import com.example.genericrestapi.request.UserDetails;
 import com.example.genericrestapi.response.LabInfo;
 import com.example.genericrestapi.response.LabsInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse.SlotDate;
 import com.example.genericrestapi.service.CallHealthDiagnosticService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -71,6 +73,22 @@ public class CallHealthDiagnosticServiceTest {
 		UserInfoResponse res = diagnosticService.getUserDetails("drl123");
 		assertEquals("Ram", res.getDataObject().get(0).getFirstName());
 		assertEquals("success", res.getStatus());
+//		assertEquals("ACCEPTED", res.getData());
+
+	}
+	
+	
+	@Test
+	public void getPhleboSlots_success() throws JsonMappingException, JsonProcessingException {
+		PhleboSlotsinfoResponse phleboSlotsinfoResponse = new PhleboSlotsinfoResponse();
+		phleboSlotsinfoResponse.setStatus(2);
+		LinkedHashMap<String, SlotDate> slots = new LinkedHashMap<String, SlotDate>();
+		phleboSlotsinfoResponse.setSlots(slots);
+		when(restService.postServiceCall(Mockito.anyObject(), Mockito.anyString(), Mockito.anyObject()))
+				.thenReturn(slots);
+		PhleboSlotsinfoResponse res = diagnosticService.getPhleboSlots();
+		assertEquals(2, res.getStatus());
+		//assertEquals("success", res.getStatus());
 //		assertEquals("ACCEPTED", res.getData());
 
 	}
