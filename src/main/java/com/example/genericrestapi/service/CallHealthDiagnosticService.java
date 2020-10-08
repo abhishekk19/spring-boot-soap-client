@@ -13,6 +13,7 @@ import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.CallHealthApiRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.LabsInfoRequest;
+import com.example.genericrestapi.request.PhleboSlotsRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.request.UserDetailsRequest;
@@ -31,6 +32,7 @@ import com.example.genericrestapi.response.Response;
 import com.example.genericrestapi.response.TestsInfoResponse;
 import com.example.genericrestapi.response.TrackOrderInfoResponse;
 import com.example.genericrestapi.response.UserInfoResponse;
+import com.example.genericrestapi.response.PhleboSlotsinfoResponse.SlotDate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -114,11 +116,17 @@ public class CallHealthDiagnosticService implements Diagnostics {
 	}
 
 	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
-		ObjectMapper objectMapper = new ObjectMapper();
+//		ObjectMapper objectMapper = new ObjectMapper();
+//
+//		String json = "{\"method\":\"api/officer_slots\", \"type\":\"POST\", \"application\":\"chiss\", \"request\":{ \"tenantCode\":\"1000143\", \"organizationCode\":\"100229\", \"from_date\":\"2020-09-24\", \"to_date\":\"2020-09-25\", \"business_id\":3, \"engagement_level\":1, \"patient_gender\":\"2\", \"service_did\":\"DRL0001\", \"pin_code\":\"500090\", \"patient_age\":34, \"order_latitude\":\"17.51863\", \"order_longitude\":\"78.396252\"\r\n" + 
+//				"}\r\n" + 
+//				"}";
+//		PhleboSlotsRequest request = objectMapper.readValue(json, PhleboSlotsRequest.class);
+		PhleboSlotsRequest request = callHealthApiRequest.preparePhleboSlotsRequest("17.51863", "78.396252", "2020-10-8", "2020-10-12", 34, "500090", "DRL0001", "2");
 
-		String json = "{\"status\":1,\"slots\":{\"2020-09-04\":[{\"from_time\":\"06:00:00\",\"to_time\":\"06:45:00\",\"transaction_id\":\"1599024538449878199\",\"is_booked\":0},{\"from_time\":\"06:30:00\",\"to_time\":\"07:30:00\",\"transaction_id\":\"1599024538448878235\",\"is_booked\":1}],\"2020-09-05\":[{\"from_time\":\"06:45:00\",\"to_time\":\"07:30:00\",\"transaction_id\":\"1599024538451554065\",\"is_booked\":0},{\"from_time\":\"07:30:00\",\"to_time\":\"08:15:00\",\"transaction_id\":\"1599024538451403971\",\"is_booked\":0}]}}";
-		PhleboSlotsinfoResponse response = objectMapper.readValue(json, PhleboSlotsinfoResponse.class);
-
+		LinkedHashMap<String, SlotDate> slots = (LinkedHashMap<String, SlotDate>)restService.postServiceCall(request, SOURCE_URL, Object.class);
+		PhleboSlotsinfoResponse response = new PhleboSlotsinfoResponse();
+		response.setSlots(slots);
 		return response;
 
 	}
