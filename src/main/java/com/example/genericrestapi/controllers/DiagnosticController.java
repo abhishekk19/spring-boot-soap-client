@@ -22,6 +22,7 @@ import com.example.genericrestapi.request.PhleboSlotsRequest;
 import com.example.genericrestapi.request.RegisterUserAddressInfoRequest;
 import com.example.genericrestapi.request.RegisterUserInfoRequest;
 import com.example.genericrestapi.request.RescheduleOrderRequest;
+import com.example.genericrestapi.request.SlotRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
@@ -142,7 +143,7 @@ public class DiagnosticController {
 
 	@RequestMapping(value = "{diagnosticId}/slots", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> getPhleboSlots(@PathVariable Long diagnosticId,
-			@RequestBody PhleboSlotsRequest phleboSlotsRequest)
+			@RequestBody SlotRequest SlotRequest)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);

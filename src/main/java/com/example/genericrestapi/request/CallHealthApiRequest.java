@@ -44,7 +44,7 @@ public class CallHealthApiRequest {
 	public PhleboSlotsRequest preparePhleboSlotsRequest(String latitude, String longitude, String fromDate,
 			String toDate, int patientAge, String pincode, String serviceDid, String patientGender) {
 		PhleboSlotsRequest phleboSlotsRequest = new PhleboSlotsRequest();
-		PhleboSlotsRequest.Request request = phleboSlotsRequest.new Request();
+		SlotRequest request = new SlotRequest();
 		phleboSlotsRequest.setMethod(SLOTS_METHOD);
 		phleboSlotsRequest.setType(POST_TYPE);
 		phleboSlotsRequest.setApplication(CHISS_APPLICATION);
