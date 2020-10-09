@@ -20,7 +20,7 @@ import com.example.genericrestapi.request.CancelOrderRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.PhleboSlotsRequest;
 import com.example.genericrestapi.request.RegisterUserAddressInfoRequest;
-import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.request.RegisterUserRequest;
 import com.example.genericrestapi.request.RescheduleOrderRequest;
 import com.example.genericrestapi.request.SlotRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
@@ -162,7 +162,7 @@ public class DiagnosticController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 
 	@RequestMapping(value = "{diagnosticId}/User", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> registerUser(@PathVariable Long diagnosticId, @RequestBody RegisterUserInfoRequest request)
+	public ResponseEntity<?> registerUser(@PathVariable Long diagnosticId, @RequestBody RegisterUserRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		Diagnostics diagnostics = genericFactory.createDiagnostics(diagnosticId);

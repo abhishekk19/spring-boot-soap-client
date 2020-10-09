@@ -12,7 +12,7 @@ import com.example.genericrestapi.createOrder.GetResultReportOPTResponse;
 import com.example.genericrestapi.factory.Diagnostics;
 import com.example.genericrestapi.request.ApiRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
-import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.request.RegisterUserRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
@@ -78,20 +78,7 @@ public class SRLDiagnosticService implements Diagnostics {
 	}
 
 	@Override
-	public LabsInfoResponse getLabs() throws JsonMappingException, JsonProcessingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RegisterUserInfoResponse registerUser(RegisterUserInfoRequest userInfoRequest)
-			throws JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -159,6 +146,20 @@ public class SRLDiagnosticService implements Diagnostics {
 	@Override
 	public CreateOrdeInfoResponse createOrder()
 			throws DatatypeConfigurationException, JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LabsInfoResponse getLabs(Double latitude, Double longitude)
+			throws JsonMappingException, JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RegisterUserInfoResponse registerUser(RegisterUserRequest userInfoRequest)
+			throws JsonMappingException, JsonProcessingException {
 		// TODO Auto-generated method stub
 		return null;
 	}

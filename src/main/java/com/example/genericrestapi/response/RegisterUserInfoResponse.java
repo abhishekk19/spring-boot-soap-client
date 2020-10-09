@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class RegisterUserInfoResponse {
 	
-    public String status;
-    public int statusCode;
     public DataObject dataObject;
     public String reason;
+    public int statusCode;
+    public String status;
     
 	public class DataObject{
 	    public Object authMrn;
@@ -19,9 +19,9 @@ public class RegisterUserInfoResponse {
 	    public String mrn;
 	    public String firstName;
 	    public String lastName;
-	    public Object middleName;
+	    public String middleName;
 	    public String userName;
-	    public Object salutation;
+	    public String salutation;
 	    public String email;
 	    public String mobile;
 	    public Object alternateEmail;
@@ -29,7 +29,7 @@ public class RegisterUserInfoResponse {
 	    public String dob;
 	    public int age;
 	    public String gender;
-	    public Object profilePicPath;
+	    public String profilePicPath;
 	    public int isActive;
 	    public Object sourceType;
 	    public int sourceId;
@@ -41,10 +41,11 @@ public class RegisterUserInfoResponse {
 	    public String tenantCode;
 	    public String organizationCode;
 	    public String memberId;
-	    public Object memberEmail;
+	    public String memberEmail;
 	    public String designation;
 	    public Object walletBalance;
 	    public String createdBy;
 	    public Object modifiedBy;
+	    public Object otpExternal;
 	}
 }

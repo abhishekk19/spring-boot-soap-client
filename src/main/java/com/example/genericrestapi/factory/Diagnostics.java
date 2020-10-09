@@ -3,7 +3,7 @@ package com.example.genericrestapi.factory;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 import com.example.genericrestapi.request.CreateOrderRequest;
-import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.request.RegisterUserRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
 import com.example.genericrestapi.response.CreateOrdeInfoResponse;
@@ -31,7 +31,7 @@ public interface Diagnostics {
 	
 	public PhleboSlotsinfoResponse getPhleboSlots() throws JsonMappingException, JsonProcessingException;
 	
-	public RegisterUserInfoResponse registerUser(RegisterUserInfoRequest userInfoRequest) throws JsonMappingException, JsonProcessingException;
+	public RegisterUserInfoResponse registerUser(RegisterUserRequest userInfoRequest) throws JsonMappingException, JsonProcessingException;
 
 	public RegisterUserAddressInfoResponse registerUserAddress() throws JsonMappingException, JsonProcessingException;
 

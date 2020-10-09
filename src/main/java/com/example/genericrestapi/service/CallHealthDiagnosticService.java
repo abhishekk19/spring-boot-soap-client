@@ -14,8 +14,7 @@ import com.example.genericrestapi.request.CallHealthApiRequest;
 import com.example.genericrestapi.request.CreateOrderRequest;
 import com.example.genericrestapi.request.LabsInfoRequest;
 import com.example.genericrestapi.request.PhleboSlotsRequest;
-import com.example.genericrestapi.request.CreateOrderRequest;
-import com.example.genericrestapi.request.RegisterUserInfoRequest;
+import com.example.genericrestapi.request.RegisterUserRequest;
 import com.example.genericrestapi.request.UserDetailsRequest;
 import com.example.genericrestapi.response.CancelOrderInfoResponse;
 import com.example.genericrestapi.response.CancelOrderReasonsInfoResponse;
@@ -145,32 +144,18 @@ public class CallHealthDiagnosticService implements Diagnostics {
 		return response;
 	}
 
-	public RegisterUserInfoResponse registerUser(RegisterUserInfoRequest userInfoRequest)
+	public RegisterUserInfoResponse registerUser(RegisterUserRequest userInfoRequest)
 			throws JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		String json = "{\r\n" + "    \"status\": \"SUCCESS\",\r\n" + "    \"statusCode\": 200,\r\n"
-				+ "    \"dataObject\": {\r\n" + "        \"authMrn\": null,\r\n" + "        \"accessToken\": null,\r\n"
-				+ "        \"source\": null,\r\n" + "        \"createdDate\": \"2020-08-24T15:41:26.000+0000\",\r\n"
-				+ "        \"modifiedDate\": \"2020-08-24T15:41:26.000+0000\",\r\n"
-				+ "        \"customerMRNID\": 8006349,\r\n" + "        \"mrn\": \"8006349\",\r\n"
-				+ "        \"firstName\": \"Nar4\",\r\n" + "        \"lastName\": \"Nar4\",\r\n"
-				+ "        \"middleName\": null,\r\n" + "        \"userName\": \"Nar@123\",\r\n"
-				+ "        \"salutation\": null,\r\n" + "        \"email\": \"nar1@nar1.com\",\r\n"
-				+ "        \"mobile\": \"9494710\",\r\n" + "        \"alternateEmail\": null,\r\n"
-				+ "        \"alternateMobile\": null,\r\n" + "        \"dob\": \"2000-01-01\",\r\n"
-				+ "        \"age\": 20,\r\n" + "        \"gender\": \"2\",\r\n"
-				+ "        \"profilePicPath\": null,\r\n" + "        \"isActive\": 1,\r\n"
-				+ "        \"sourceType\": null,\r\n" + "        \"sourceId\": 4,\r\n" + "        \"consent\": 0,\r\n"
-				+ "        \"isDependent\": 0,\r\n" + "        \"businessSource\": null,\r\n"
-				+ "        \"parentMrn\": null,\r\n" + "        \"relation\": null,\r\n"
-				+ "        \"tenantCode\": \"1000015\",\r\n" + "        \"organizationCode\": \"100023\",\r\n"
-				+ "        \"memberId\": \"0\",\r\n" + "        \"memberEmail\": null,\r\n"
-				+ "        \"designation\": \"test\",\r\n" + "        \"walletBalance\": null,\r\n"
-				+ "        \"createdBy\": \"santharam\",\r\n" + "        \"modifiedBy\": null\r\n" + "    },\r\n"
-				+ "    \"reason\": \"Details inserted successfully\"\r\n" + "}";
-		RegisterUserInfoResponse response = objectMapper.readValue(json, RegisterUserInfoResponse.class);
-
+		String json = "{ \"method\":\"globalmaster/gcm/corporate/customer/createCustomer\", \"type\":\"POST\", \"application\":\"gcm\", \"request\":{ \"firstName\": \"Nar4\", \"lastName\": \"Nar4\", \"middleName\": \"\", \"salutation\":\"Mr.\", \"userName\": \"Nar@123\", \"gender\": \"2\", \"profilePicPath\":\"\", \"dob\": \"2000-01-01\", \"email\": \"nar1@nar1.com\", \"mobile\": \"9494710\", \"enabled\": 1, \"isActive\": 1, \"sourceType\": \"CORP\", \"password\": \"580895\", \"createdBy\": \"santharam\", \"organizationCode\": \"100229\", \"tenantCode\": \"1000143\", \"memberId\": \"1234567\", \"memberEmail\": \"drl@testmail.com\", \"designation\": \"test\", \"address\": [\r\n" + 
+				"{ \"address\": \"tt\", \"addressType\":\"\", \"area\": \"area\", \"landmark\": \"tt\", \"zipcode\": \"state\", \"mandal\": \"\", \"district\": \"city\", \"city\": \"tt\", \"state\": \"500012\", \"country\": \"district\", \"isDefaultAddress\": 1, \"enabled\": 1, \"isActive\": 1, \"latitude\": \"0\", \"longitude\": \"0\", \"createdBy\": \"santharam\"\r\n" + 
+				"}\r\n" + 
+				"]\r\n" + 
+				"}\r\n" + 
+				"}";
+		RegisterUserRequest request = objectMapper.readValue(json, RegisterUserRequest.class);
+		RegisterUserInfoResponse response  = (RegisterUserInfoResponse)restService.postServiceCall(request, SOURCE_URL, RegisterUserInfoResponse.class);
 		return response;
 
 	}

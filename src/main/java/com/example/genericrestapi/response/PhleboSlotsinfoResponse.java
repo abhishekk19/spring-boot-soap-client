@@ -17,7 +17,7 @@ public class PhleboSlotsinfoResponse {
 	@JsonProperty("slots")
 	private LinkedHashMap<String, SlotDate> slots;
 
-	public static class SlotDate {
+	public class SlotDate {
 
 		@JsonProperty("from_time")
 		private String fromTime;
