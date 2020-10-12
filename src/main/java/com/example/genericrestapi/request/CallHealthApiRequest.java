@@ -1,10 +1,13 @@
 package com.example.genericrestapi.request;
 
+import com.example.genericrestapi.response.RegisterUserInfoResponse;
+
 public class CallHealthApiRequest {
 
 	private static final String USER_DETAILS_METHOD = "globalmaster/gcm/corporate/customer/fullDetails";
 	private static final String LABS_METHOD = "corporate/services/drReddy/associatesByServiceCodes";
 	private static final String SLOTS_METHOD = "api/officer_slots";
+	private static final String USER_REGISTRATION_METHOD = "globalmaster/gcm/corporate/customer/createCustomer";
 
 	private static final String POST_TYPE = "POST";
 	private static final String GCM_APPLICATION = "gcm";
@@ -62,6 +65,18 @@ public class CallHealthApiRequest {
 		request.setEngagementLevel(1);
 		phleboSlotsRequest.setRequest(request);
 		return phleboSlotsRequest;
+	}
+
+	public RegisterUserRequest prepareRegisterUserRequest(RegisterUserRequest registerUserRequest) {
+		//RegisterUserRequest registerUserRequest = new RegisterUserRequest();
+		RegisterUserRequest.Request request = registerUserRequest.getRequest();
+		registerUserRequest.setMethod(USER_REGISTRATION_METHOD);
+		registerUserRequest.setType(POST_TYPE);
+		registerUserRequest.setApplication(GCM_APPLICATION);
+		request.setEnabled(1);
+		request.setIsActive(1);
+		request.setSourceType("CORP");
+		return registerUserRequest;
 	}
 
 }

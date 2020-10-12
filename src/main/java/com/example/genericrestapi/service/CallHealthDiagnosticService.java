@@ -144,18 +144,21 @@ public class CallHealthDiagnosticService implements Diagnostics {
 		return response;
 	}
 
-	public RegisterUserInfoResponse registerUser(RegisterUserRequest userInfoRequest)
+	public RegisterUserInfoResponse registerUser(RegisterUserRequest registerUserRequest)
 			throws JsonMappingException, JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		String json = "{ \"method\":\"globalmaster/gcm/corporate/customer/createCustomer\", \"type\":\"POST\", \"application\":\"gcm\", \"request\":{ \"firstName\": \"Nar4\", \"lastName\": \"Nar4\", \"middleName\": \"\", \"salutation\":\"Mr.\", \"userName\": \"Nar@123\", \"gender\": \"2\", \"profilePicPath\":\"\", \"dob\": \"2000-01-01\", \"email\": \"nar1@nar1.com\", \"mobile\": \"9494710\", \"enabled\": 1, \"isActive\": 1, \"sourceType\": \"CORP\", \"password\": \"580895\", \"createdBy\": \"santharam\", \"organizationCode\": \"100229\", \"tenantCode\": \"1000143\", \"memberId\": \"1234567\", \"memberEmail\": \"drl@testmail.com\", \"designation\": \"test\", \"address\": [\r\n" + 
+		String json = "{ \"method\":\"null\", \"type\":\"null\", \"application\":\"null\", \"request\":{ \"firstName\": \"Nar4\", \"lastName\": \"Nar4\", \"middleName\": \"\", \"salutation\":\"Mr.\", \"userName\": \"Nar@123\", \"gender\": \"2\", \"profilePicPath\":\"\", \"dob\": \"2000-01-01\", \"email\": \"nar1@nar1.com\", \"mobile\": \"9494710\", \"enabled\": 1, \"isActive\": 1, \"sourceType\": \"CORP\", \"password\": \"580895\", \"createdBy\": \"santharam\", \"organizationCode\": \"100229\", \"tenantCode\": \"1000143\", \"memberId\": \"1234567\", \"memberEmail\": \"drl@testmail.com\", \"designation\": \"test\", \"address\": [\r\n" + 
 				"{ \"address\": \"tt\", \"addressType\":\"\", \"area\": \"area\", \"landmark\": \"tt\", \"zipcode\": \"state\", \"mandal\": \"\", \"district\": \"city\", \"city\": \"tt\", \"state\": \"500012\", \"country\": \"district\", \"isDefaultAddress\": 1, \"enabled\": 1, \"isActive\": 1, \"latitude\": \"0\", \"longitude\": \"0\", \"createdBy\": \"santharam\"\r\n" + 
 				"}\r\n" + 
 				"]\r\n" + 
 				"}\r\n" + 
 				"}";
 		RegisterUserRequest request = objectMapper.readValue(json, RegisterUserRequest.class);
-		RegisterUserInfoResponse response  = (RegisterUserInfoResponse)restService.postServiceCall(request, SOURCE_URL, RegisterUserInfoResponse.class);
+		
+		registerUserRequest = callHealthApiRequest.prepareRegisterUserRequest(request);
+
+		RegisterUserInfoResponse response  = (RegisterUserInfoResponse)restService.postServiceCall(registerUserRequest, SOURCE_URL, RegisterUserInfoResponse.class);
 		return response;
 
 	}
