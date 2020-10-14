@@ -121,11 +121,11 @@ public class CallHealthDiagnosticService implements Diagnostics {
 //				"}\r\n" + 
 //				"}";
 //		PhleboSlotsRequest request = objectMapper.readValue(json, PhleboSlotsRequest.class);
-		PhleboSlotsRequest request = callHealthApiRequest.preparePhleboSlotsRequest("17.51863", "78.396252", "2020-10-8", "2020-10-12", 34, "500090", "DRL0001", "2");
+		PhleboSlotsRequest request = callHealthApiRequest.preparePhleboSlotsRequest("17.51863", "8.396252", "2020-10-14", "2020-10-14", 34, "500003", "DRL0001", "2");
 
-		LinkedHashMap<String, SlotDate> slots = (LinkedHashMap<String, SlotDate>)restService.postServiceCall(request, SOURCE_URL, Object.class);
-		PhleboSlotsinfoResponse response = new PhleboSlotsinfoResponse();
-		response.setSlots(slots);
+		PhleboSlotsinfoResponse response = (PhleboSlotsinfoResponse)restService.postServiceCall(request, SOURCE_URL, Object.class);
+		//PhleboSlotsinfoResponse response = new PhleboSlotsinfoResponse();
+		//.setSlots(slots);
 		return response;
 
 	}
